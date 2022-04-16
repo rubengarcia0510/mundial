@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+  }
+
+.mat-column-demo-name {
+    padding-left: 16px;
+    font-size: 20px;
+}
+
+.mat-grid-tile {
+    overflow: inherit;
+}
+
+.mat-grid-tile-content {
+    padding: 5px;
+}

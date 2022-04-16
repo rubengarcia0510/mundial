@@ -1,0 +1,33 @@
+<div>
+<h3>Grupo {{groupName.name}}</h3>
+<table class="mat-elevation-z8" style="overflow: inherit;margin-top: 20px;">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Name Column -->
+    <tr>
+        <td>Equipo</td>
+        <td>PJ</td>
+        <td>PG</td>
+        <td>PE</td>
+        <td>GF</td>
+        <td>GC</td>
+        <td>DG</td>
+        <td>PUNTOS</td>
+        </tr>
+      <tr *ngFor="let equipo of groupName.equipos">
+          <td style="width: 100px;">{{equipo.name}}</td>
+          <td id="{{equipo.name}}-pj">{{equipo.pj}}</td>
+          <td id="{{equipo.name}}-pg">{{equipo.pg}}</td>
+          <td id="{{equipo.name}}-pe">{{equipo.pe}}</td>
+          <td id="{{equipo.name}}-gf">{{equipo.gf}}</td>
+          <td id="{{equipo.name}}-gc">{{equipo.gc}}</td>
+          <td id="{{equipo.name}}-dg">{{equipo.gf - equipo.gc}}</td>
+          <td style="text-align: center;" id="{{equipo.name}}-puntos">{{equipo.puntos}}</td>
+      </tr>
+      
+      
+  
+  </table>
+  </div>

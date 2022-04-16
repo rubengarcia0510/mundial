@@ -1,0 +1,679 @@
+<mat-toolbar style="position: fixed;z-index:1000; grid-column-gap: 10px;" color="primary">
+  <button type="button" [matMenuTriggerFor]="settingsMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #settingsMenu>
+    <menu mat-menu-item>Profile</menu>
+    <menu mat-menu-item>Account</menu>
+  </mat-menu>
+  <span>World Cup - Qatar 2022</span>
+</mat-toolbar>
+<mat-card style="padding-left: 5em;">
+
+  <div style="display: flex;
+              grid-column-gap: 25px; 
+              margin-top:50px;
+              flex-wrap: wrap;">
+    <div *ngFor="let grupo of grupos">
+      <app-grupo style="margin-top: 30px;" [groupName]="grupo"></app-grupo>
+    </div>
+  </div>
+</mat-card>
+<mat-card>
+  <h3>Fase de Grupos</h3>
+
+
+
+  <form>
+    <h3>Grupo A</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Qatar </label><input id="Qatar-f1" type="number" value=0 (click)="updateGoals('A',$event,'Ecuador')">
+      </div>
+      <div style="display: table-row;">
+        <label>Ecuador </label><input id="Ecuador-f1" type="number" value="0" (click)="updateGoals('A',$event,'Qatar')">
+      </div>
+      <div style="display: table-row;">
+        Lunes 21 de noviembre, a las 13 | Estadio Al Bayt
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Senegal </label><input type="number" value=0 (click)="updateGoals('A',$event,'Holanda')">
+      </div>
+      <div style="display: table-row;">
+        <label>Holanda </label><input type="number" value="0" (click)="updateGoals('A',$event,'Senegal')">
+      </div>
+      <div style="display: table-row;">
+        Lunes 21 de noviembre, a las 7 | Estadio Al Thumama
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Qatar </label><input type="number" value=0 (click)="updateGoals('A',$event,'Senegal')">
+      </div>
+      <div style="display: table-row;">
+        <label>Senegal </label><input type="number" value="0" (click)="updateGoals('A',$event,'Qatar')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 25 de noviembre, a las 10 | Estadio Al Thumama
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Ecuador </label><input type="number" value=0 (click)="updateGoals('A',$event,'Holanda')">
+      </div>
+      <div style="display: table-row;">
+        <label>Holanda </label><input type="number" value="0" (click)="updateGoals('A',$event,'Ecuador')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 25 de noviembre, a las 13 | Estadio Internacional Khalifa
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Qatar </label><input type="number" value=0 (click)="updateGoals('A',$event,'Holanda')">
+      </div>
+      <div style="display: table-row;">
+        <label>Holanda </label><input type="number" value="0" (click)="updateGoals('A',$event,'Qatar')">
+      </div>
+      <div style="display: table-row;">
+        Martes 29 de noviembre, a las 12 | Estadio Al Bayt.
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Ecuador </label><input type="number" value=0 (click)="updateGoals('A',$event,'Senegal')">
+      </div>
+      <div style="display: table-row;">
+        <label>Senegal </label><input type="number" value="0" (click)="updateGoals('A',$event,'Ecuador')">
+      </div>
+      <div style="display: table-row;">
+        Martes 29 de noviembre, a las 12 | Estadio Internacional Khalifa
+      </div>
+    </div>
+  </form>
+
+  <form>
+    <h3>Grupo B</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Inglaterra </label><input type="number" value=0 (click)="updateGoals('B',$event,'Iran')">
+      </div>
+      <div style="display: table-row;">
+        <label>Iran </label><input type="number" value="0" (click)="updateGoals('B',$event,'Inglaterra')">
+      </div>
+      <div style="display: table-row;">
+        Lunes 21 de noviembre, a las 10 | Estadio Internacional Khalifa
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>USA </label><input type="number" value=0 (click)="updateGoals('B',$event,'Repechaje Europeo')">
+      </div>
+      <div style="display: table-row;">
+        <label>Repechaje Europeo </label><input type="number" value="0" (click)="updateGoals('B',$event,'USA')">
+      </div>
+      <div style="display: table-row;">
+        Lunes 21 de noviembre, a las 16 | Estadio Ahmad Bin
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Inglaterra </label><input type="number" value=0 (click)="updateGoals('B','Inglaterra','USA')">
+      </div>
+      <div style="display: table-row;">
+        <label>USA </label><input type="number" value="0" (click)="updateGoals('B','USA','Inglaterra')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 25 de noviembre, a las 16 | Estadio Al Bayt.
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Iran </label><input type="number" value=0 (click)="updateGoals('B','Iran','Repechaje Europeo')">
+      </div>
+      <div style="display: table-row;">
+        <label>Repechaje Europeo </label><input type="number" value="0"
+          (click)="updateGoals('B','Repechaje Europeo','Iran')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 25 de noviembre, a las 7 | Estadio Ahmad Bin Ali.
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Inglaterra </label><input type="number" value=0
+          (click)="updateGoals('B','Inglaterra','Repechaje Europeo')">
+      </div>
+      <div style="display: table-row;">
+        <label>Repechaje Europeo </label><input type="number" value="0"
+          (click)="updateGoals('B','Repechaje Europeo','Inglaterra')">
+      </div>
+      <div style="display: table-row;">
+        Martes 29 de noviembre, a las 16 | Estadio Ahmad Bin Ali.
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Iran </label><input type="number" value=0 (click)="updateGoals('B','Iran','USA')">
+      </div>
+      <div style="display: table-row;">
+        <label>USA </label><input type="number" value="0" (click)="updateGoals('B','USA','Iran')">
+      </div>
+      <div style="display: table-row;">
+        Martes 29 de noviembre, a las 16 | Estadio Al Thumama
+      </div>
+    </div>
+
+
+  </form>
+
+  <form>
+    <h3>Grupo C</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Argentina </label><input type="number" value=0 (click)="updateGoals('C','Argentina','Arabia Saudita')">
+      </div>
+      <div style="display: table-row;">
+        <label>Arabia Saudita </label><input type="number" value="0"
+          (click)="updateGoals('C','Arabia Saudita','Argentina')">
+      </div>
+      <div style="display: table-row;">
+        Martes 22 de noviembre, a las 9 | Estadio Icónico de Lusail
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Mexico </label><input type="number" value=0 (click)="updateGoals('C','Mexico','Polonia')">
+      </div>
+      <div style="display: table-row;">
+        <label>Polonia </label><input type="number" value="0" (click)="updateGoals('C','Polonia','Mexico')">
+      </div>
+      <div style="display: table-row;">
+        Martes 22 de noviembre, a las 15 | Estadio 974
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Argentina </label><input type="number" value=0 (click)="updateGoals('C','Argentina','Mexico')">
+      </div>
+      <div style="display: table-row;">
+        <label>Mexico </label><input type="number" value="0" (click)="updateGoals('C','Mexico','Argentina')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 26 de noviembre, a las 16 | Estadio Icónico de Lusail
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Arabia Saudita </label><input type="number" value=0
+          (click)="updateGoals('C','Arabia Saudita','Polonia')">
+      </div>
+      <div style="display: table-row;">
+        <label>Polonia </label><input type="number" value="0" (click)="updateGoals('C','Polonia','Arabia Saudita')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 26 de noviembre, a las 10 | Estadio Ciudad de la Educación
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Polonia </label><input type="number" value=0 (click)="updateGoals('C','Polonia','Argentina')">
+      </div>
+      <div style="display: table-row;">
+        <label>Argentina </label><input type="number" value="0" (click)="updateGoals('C','Argentina','Polonia')">
+      </div>
+      <div style="display: table-row;">
+        Miercoles 30 de noviembre, a las 16 | Estado 974
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Arabia Saudita </label><input type="number" value=0 (click)="updateGoals('C','Arabia Saudita','Mexico')">
+      </div>
+      <div style="display: table-row;">
+        <label>Mexico </label><input type="number" value="0" (click)="updateGoals('C','Mexico','Arabia Saudita')">
+      </div>
+      <div style="display: table-row;">
+        Miercoles 30 de noviembre, a las 16 | Estadio Icónico de Lusail
+      </div>
+    </div>
+
+
+  </form>
+
+  <form>
+    <h3>Grupo D</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Francia </label><input type="number" value=0 (click)="updateGoals('D','Francia','CONMEBOL/AFC')">
+      </div>
+      <div style="display: table-row;">
+        <label>CONMEBOL/AFC </label><input type="number" value="0" (click)="updateGoals('D','CONMEBOL/AFC','Francia')">
+      </div>
+      <div style="display: table-row;">
+        Martes 22 de noviembre, a las 16 | Estadio Al Janoub
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Dinamarca </label><input type="number" value=0 (click)="updateGoals('D','Dinamarca','Tunez')">
+      </div>
+      <div style="display: table-row;">
+        <label>Tunez </label><input type="number" value="0" (click)="updateGoals('D','Tunez','Dinamarca')">
+      </div>
+      <div style="display: table-row;">
+        Martes 22 de noviembre, a las 10 | Estadio Al Janoub
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Francia </label><input type="number" value=0 (click)="updateGoals('D','Francia','Dinamarca')">
+      </div>
+      <div style="display: table-row;">
+        <label>Dinamarca </label><input type="number" value="0" (click)="updateGoals('D','Dinamarca','Francia')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 26 de noviembre, a las 15 | Estadio 974
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>CONMEBOL/AFC </label><input type="number" value=0 (click)="updateGoals('D','CONMEBOL/AFC','Tunez')">
+      </div>
+      <div style="display: table-row;">
+        <label>Tunez </label><input type="number" value="0" (click)="updateGoals('D','Tunez','CONMEBOL/AFC')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 26 de noviembre, a las 9 | Estadio Al Janoub
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Francia </label><input type="number" value=0 (click)="updateGoals('D','Francia','Tunez')">
+      </div>
+      <div style="display: table-row;">
+        <label>Tunez </label><input type="number" value="0" (click)="updateGoals('D','Tunez','Francia')">
+      </div>
+      <div style="display: table-row;">
+        Miercoles 30 de noviembre, a las 14 | Estadio Ciudad de la Educación
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>CONMEBOL/AFC </label><input type="number" value=0 (click)="updateGoals('D','CONMEBOL/AFC','Dinamarca')">
+      </div>
+      <div style="display: table-row;">
+        <label>Dinamarca </label><input type="number" value="0" (click)="updateGoals('D','Dinamarca','CONMEBOL/AFC')">
+      </div>
+      <div style="display: table-row;">
+        Miercoles 30 de noviembre, a las 14 | Estadio Icónico de Lusail
+      </div>
+    </div>
+  </form>
+
+  <form>
+    <h3>Grupo E</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>España </label><input type="number" value=0 (click)="updateGoals('E','España','CONCACAF/OFC')">
+      </div>
+      <div style="display: table-row;">
+        <label>CONCACAF/OFC </label><input type="number" value="0" (click)="updateGoals('E','CONCACAF/OFC','España')">
+      </div>
+      <div style="display: table-row;">
+        Miercoles 23 de noviembre, a las 15 | Estadio Al Thumama
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Alemania </label><input type="number" value=0 (click)="updateGoals('E','Alemania','Japon')">
+      </div>
+      <div style="display: table-row;">
+        <label>Japon </label><input type="number" value="0" (click)="updateGoals('E','Japon','Alemania')">
+      </div>
+      <div style="display: table-row;">
+        Martes 23 de noviembre, a las 10 | Estadio Internacional Khalifa
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>España </label><input type="number" value=0 (click)="updateGoals('E','España','Alemania')">
+      </div>
+      <div style="display: table-row;">
+        <label>Alemania </label><input type="number" value="0" (click)="updateGoals('E','Alemania','España')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 27 de noviembre, a las 16 | Estadio Al Bayt
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>CONCACAF/OFC </label><input type="number" value=0 (click)="updateGoals('E','CONCACAF/OFC','Japon')">
+      </div>
+      <div style="display: table-row;">
+        <label>Japon </label><input type="number" value="0" (click)="updateGoals('E','Japon','CONCACAF/OFC')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 27 de noviembre, a las 9 | Estadio Ahmad Bin Ali
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>España </label><input type="number" value=0 (click)="updateGoals('E','España','Japon')">
+      </div>
+      <div style="display: table-row;">
+        <label>Japon </label><input type="number" value="0" (click)="updateGoals('E','Japon','España')">
+      </div>
+      <div style="display: table-row;">
+        Jueves 1 de diciembre, a las 16 | Estadio Internacional Khalifa
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>CONCACAF/OFC </label><input type="number" value=0 (click)="updateGoals('E','CONCACAF/OFC','Alemania')">
+      </div>
+      <div style="display: table-row;">
+        <label>Alemania </label><input type="number" value="0" (click)="updateGoals('E','Alemania','CONCACAF/OFC')">
+      </div>
+      <div style="display: table-row;">
+        Jueves 1 de diciembre, a las 16 | Estadio Al Bayt
+      </div>
+    </div>
+  </form>
+
+  <form>
+    <h3>Grupo F</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Belgica </label><input type="number" value=0 (click)="updateGoals('F','Belgica','Canada')">
+      </div>
+      <div style="display: table-row;">
+        <label>Canada </label><input type="number" value="0" (click)="updateGoals('F','Canada','Belgica')">
+      </div>
+      <div style="display: table-row;">
+        Miercoles 23 de noviembre, a las 16 | Estadio Ahmad Bin Ali
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Marruecos </label><input type="number" value=0 (click)="updateGoals('F','Marruecos','Croacia')">
+      </div>
+      <div style="display: table-row;">
+        <label>Croacia </label><input type="number" value="0" (click)="updateGoals('F','Croacia','Marruecos')">
+      </div>
+      <div style="display: table-row;">
+        Martes 23 de noviembre, a las 7 | Estadio Al Bayt
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Belgica </label><input type="number" value=0 (click)="updateGoals('F','Belgica','Marruecos')">
+      </div>
+      <div style="display: table-row;">
+        <label>Marruecos </label><input type="number" value="0" (click)="updateGoals('F','Marruecos','Belgica')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 27 de noviembre, a las 10 | Estadio Al Thumama
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Canada </label><input type="number" value=0 (click)="updateGoals('F','Canada','Croacia')">
+      </div>
+      <div style="display: table-row;">
+        <label>Croacia </label><input type="number" value="0" (click)="updateGoals('F','Croacia','Canada')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 27 de noviembre, a las 13 | Estadio Internacional Khalifa
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Belgica </label><input type="number" value=0 (click)="updateGoals('F','Belgica','Belgica')">
+      </div>
+      <div style="display: table-row;">
+        <label>Croacia </label><input type="number" value="0" (click)="updateGoals('F','Canada','Belgica')">
+      </div>
+      <div style="display: table-row;">
+        Jueves 1 de diciembre, a las 12 | Estadio Ahmad Bin Ali
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Canada </label><input type="number" value=0 (click)="updateGoals('F','Canada','Marruecos')">
+      </div>
+      <div style="display: table-row;">
+        <label>Marruecos </label><input type="number" value="0" (click)="updateGoals('F','Marruecos','Canada')">
+      </div>
+      <div style="display: table-row;">
+        Jueves 1 de diciembre, a las 12 | Estadio Al Thumama
+      </div>
+    </div>
+  </form>
+
+  <form>
+    <h3>Grupo G</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Brasil </label><input type="number" value=0 (click)="updateGoals('G','Brasil','Serbia')">
+      </div>
+      <div style="display: table-row;">
+        <label>Serbia </label><input type="number" value="0" (click)="updateGoals('G','Serbia','Brasil')">
+      </div>
+      <div style="display: table-row;">
+        Jueves 24 de noviembre, a las 16 | Estadio Icónico de Lusail
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Suiza </label><input type="number" value=0 (click)="updateGoals('G','Suiza','Camerun')">
+      </div>
+      <div style="display: table-row;">
+        <label>Camerun </label><input type="number" value="0" (click)="updateGoals('G','Camerun','Suiza')">
+      </div>
+      <div style="display: table-row;">
+        Martes 24 de noviembre, a las 7 | Estadio Al Janoub
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Brasil </label><input type="number" value=0 (click)="updateGoals('G','Brasil','Suiza')">
+      </div>
+      <div style="display: table-row;">
+        <label>Suiza </label><input type="number" value="0" (click)="updateGoals('G','Suiza','Brasil')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 28 de noviembre, a las 13 | Estadio 974
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Serbia </label><input type="number" value=0 (click)="updateGoals('G','Serbia','Camerun')">
+      </div>
+      <div style="display: table-row;">
+        <label>Camerun </label><input type="number" value="0" (click)="updateGoals('G','Camerun','Serbia')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 28 de noviembre, a las 7 | Estadio Al Janoub
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Brasil </label><input type="number" value=0 (click)="updateGoals('G','Brasil','Camerun')">
+      </div>
+      <div style="display: table-row;">
+        <label>Camerun </label><input type="number" value="0" (click)="updateGoals('G','Camerun','Brasil')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 2 de diciembre, a las 16 | Estadio Icónico de Lusail
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Canada </label><input type="number" value=0 (click)="updateGoals('G','Canada','Marruecos')">
+      </div>
+      <div style="display: table-row;">
+        <label>Marruecos </label><input type="number" value="0" (click)="updateGoals('G','Marruecos','Canada')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 2 de diciembre, a las 16 | Estadio 974
+      </div>
+    </div>
+  </form>
+
+  <form>
+    <h3>Grupo H</h3>
+    <h3>Fecha 1</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Portugal </label><input type="number" value=0 (click)="updateGoals('H','Portugal','Ghana')">
+      </div>
+      <div style="display: table-row;">
+        <label>Ghana </label><input type="number" value="0" (click)="updateGoals('H','Ghana','Portugal')">
+      </div>
+      <div style="display: table-row;">
+        Jueves 24 de noviembre, a las 13 | Estadio 974
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Uruguay </label><input type="number" value=0 (click)="updateGoals('H','Uruguay','Corea del Sur')">
+      </div>
+      <div style="display: table-row;">
+        <label>Corea del Sur </label><input type="number" value="0"
+          (click)="updateGoals('H','Corea del Sur','Uruguay')">
+      </div>
+      <div style="display: table-row;">
+        Martes 24 de noviembre, a las 10 | Estadio Ciudad de la Educación
+      </div>
+    </div>
+    <h3>Fecha 2</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Portugal </label><input type="number" value=0 (click)="updateGoals('H','Portugal','Uruguay')">
+      </div>
+      <div style="display: table-row;">
+        <label>Uruguay </label><input type="number" value="0" (click)="updateGoals('H','Uruguay','Portugal')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 28 de noviembre, a las 16 | Estadio Icónico de Lusail
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Ghana </label><input type="number" value=0 (click)="updateGoals('H','Ghana','Corea del Sur')">
+      </div>
+      <div style="display: table-row;">
+        <label>Corea del Sur </label><input type="number" value="0" (click)="updateGoals('H','Ghana','Portugal')">
+      </div>
+      <div style="display: table-row;">
+        Sabado 28 de noviembre, a las 10 | Estadio Ciudad de la Educación
+      </div>
+    </div>
+    <h3>Fecha 3</h3>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Portugal </label><input type="number" value=0 (click)="updateGoals('H','Portugal','Corea del Sur')">
+      </div>
+      <div style="display: table-row;">
+        <label>Corea del Sur </label><input type="number" value="0"
+          (click)="updateGoals('H','Corea del Sur','Portugal')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 2 de diciembre, a las 12 | Estadio Ciudad de la Educación
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns: auto 0.5fr 1fr;grid-column-gap: 5px;">
+      <div style="display: table-row;">
+        <label>Ghana </label><input type="number" value=0 (click)="updateGoals('H','Ghana','Uruguay')">
+      </div>
+      <div style="display: table-row;">
+        <label>Uruguay </label><input type="number" value="0" (click)="updateGoals('H','Uruguay','Ghana')">
+      </div>
+      <div style="display: table-row;">
+        Viernes 2 de diciembre, a las 12 | Estadio Al Janoub
+      </div>
+    </div>
+  </form>
+</mat-card>
+<mat-card>
+  <h3>Fase Final</h3>
+</mat-card>
+<mat-card>
+  <h3>Octavos de Final</h3>
+  <form>
+    <table>
+      <tr *ngFor="let row of octavosFinal()">
+        <td>{{row.partido.equipo1}}</td>
+        <td><input type="number"></td>
+        <td>{{row.partido.equipo2}}</td>
+        <td><input type="number"></td>
+      </tr>
+    </table>
+  </form>
+
+
+</mat-card>
+<mat-card>
+  <h3>Cuartos de Final</h3>
+  <form>
+    <table>
+      <tr *ngFor="let row of cuartosFinal()">
+        <td>{{row.partido.equipo1}}</td>
+        <td><input type="number"></td>
+        <td>{{row.partido.equipo2}}</td>
+        <td><input type="number"></td>
+      </tr>
+    </table>
+  </form>
+</mat-card>
+<mat-card>
+  <h3>Semifinal</h3>
+  <form>
+    <table>
+      <tr *ngFor="let row of semiFinal()">
+        <td>{{row.partido.equipo1}}</td>
+        <td><input type="number"></td>
+        <td>{{row.partido.equipo2}}</td>
+        <td><input type="number"></td>
+      </tr>
+    </table>
+  </form>
+</mat-card>
+<mat-card>
+  <h3>Final</h3>
+  <form>
+    <table>
+      <tr *ngFor="let row of final()">
+        <td>{{row.partido.equipo1}}</td>
+        <td><input type="number"></td>
+        <td>{{row.partido.equipo2}}</td>
+        <td><input type="number"></td>
+      </tr>
+    </table>
+  </form>
+</mat-card>
