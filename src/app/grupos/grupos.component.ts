@@ -104,6 +104,16 @@ export class GruposComponent implements OnInit {
   grupos:any
   isActive = false;
   partidosOctavos:any=[]
+  groups=['A','B','C','D','E','F','G','H']
+
+  logicaFaseGrupos=[
+    {fecha:1,equipo1:0,equipo2:3},
+    {fecha:1,equipo1:1,equipo2:2},
+    {fecha:2,equipo1:0,equipo2:2},
+    {fecha:2,equipo1:1,equipo2:3},
+    {fecha:3,equipo1:0,equipo2:1},
+    {fecha:3,equipo1:2,equipo2:3},
+  ]
 
   constructor() { 
     this.grupos=[]
@@ -377,13 +387,25 @@ export class GruposComponent implements OnInit {
     }
 
     let partidos:Partido[]=[
-      partido1,
-      partido2,
       partido3,
       partido4,
+      partido2,
       partido5,
+      partido1,
       partido6
     ]
+
+    let partidos2: { fecha: number; equipo1: string; equipo2: string; }[]=[]
+    this.logicaFaseGrupos.forEach(rec=>{
+      partidos2.push({
+        fecha:rec.fecha,
+        equipo1:GRUPOS[0].equipos[rec.equipo1].name,
+        equipo2:GRUPOS[0].equipos[rec.equipo2].name,
+      })
+
+    })
+
+    return partidos2;
 
   }
 
