@@ -20,7 +20,31 @@
     </div>
   </div>
 </mat-card>
+<mat-card>
+  <h3>Fase de Grupos</h3>
+  <h3>Grupo A</h3>
+  <form>
+    <table>
+      <ng-container *ngFor="let row of partidosFaseGrupos;let i=index">
+        <ng-container *ngIf="(i%6)==0">
+          <tr>Grupo {{row.grupo}}</tr>
+        </ng-container>
+        <ng-container *ngIf="(i%2)==0">
+          <tr>Fecha {{row.fecha}}</tr>
+        </ng-container>
+        <tr>
+          <td>{{row.equipo1}}</td>
+          <td><input id={{row.equipo1}}-f{{row.fecha}} type="number" value="0"></td>
+          <td>{{row.equipo2}}</td>
+          <td><input id={{row.equipo2}}-f{{row.fecha}} type="number" value="0"></td>
+          <td><input type="checkbox" (click)="updateGrupo($event,row.grupo,row.equipo1,row.equipo2,row.fecha)"></td>
+        </tr>
 
+
+      </ng-container>
+    </table>
+  </form>
+</mat-card>
 <mat-card>
   <h3>Fase Final</h3>
 </mat-card>
@@ -75,32 +99,6 @@
         <td>{{row.partido.equipo2}}</td>
         <td><input type="number"></td>
       </tr>
-    </table>
-  </form>
-</mat-card>
-
-<mat-card>
-  <h3>Grupo A</h3>
-  <form>
-    <table>
-      <ng-container *ngFor="let row of partidosFaseGrupos;let i=index">
-        <ng-container *ngIf="(i%6)==0">
-          <tr>Grupo {{row.grupo}}</tr>
-        </ng-container>
-        <ng-container *ngIf="(i%2)==0">
-          <tr>Fecha {{row.fecha}}</tr>
-        </ng-container>
-        <tr>
-          <td>{{row.equipo1}}</td>
-          <td><input id="{{row.equipo1}}-f{{row.fecha}}" type="number" value="0"></td>
-          <td>{{row.equipo2}}</td>
-          <td><input id="{{row.equipo2}}-f{{row.fecha}}" type="number" value="0"></td>
-          <td><input type="checkbox"
-              (click)="updateGrupo($event,'{{row.grupo}}','{{row.equipo1}}', '{{row.equipo2}}', '{{row.fecha}}')"></td>
-        </tr>
-
-
-      </ng-container>
     </table>
   </form>
 </mat-card>

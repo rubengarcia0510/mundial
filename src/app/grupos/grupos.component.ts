@@ -122,44 +122,80 @@ export class GruposComponent implements OnInit {
 
   constructor() {
     this.grupos = []
-    this.partidosOctavos=this.octavosFinal()
-    this.partidosCuartos=this.cuartosFinal()
-    this.partidosSemi=this.semiFinal()
-    this.partidosFinal=this.final()
-    this.partidosFaseGrupos=this.partidosGrupoA()
+    this.partidosOctavos = this.octavosFinal()
+    this.partidosCuartos = this.cuartosFinal()
+    this.partidosSemi = this.semiFinal()
+    this.partidosFinal = this.final()
+    this.partidosFaseGrupos = this.partidosGrupoA()
   }
 
   ngOnInit(): void {
     this.grupos = GRUPOS
   }
 
-  updateGrupo(event:any,grupo:string,equipo1:string,equipo2:string, fecha:string){
+  updateGrupo(event: any, grupo: string, equipo1: string, equipo2: string, fecha: string) {
     console.log(grupo)
     console.log(equipo1)
     console.log(equipo2)
     console.log(fecha)
     console.log(event.target.checked)
+    this.updateGoals(grupo, equipo1, equipo2, fecha)
+    this.updatePuntos(grupo, equipo1, equipo2, fecha)
   }
 
-  updateGoals(grupo: string, local: any, visitante: any, fecha:string) {
-    let id = local.target.id.split('-')[0]
-    console.log(id + ":" + local.target.value)
+  updatePuntos(grupo: string, equipo1: string, equipo2: string, fecha: string) {
+
+    let puntosEquipo1: HTMLElement | null
+    puntosEquipo1 = document.getElementById(equipo1 + "-puntos")
+    let puntosEquipo2: HTMLElement | null
+    puntosEquipo2 = document.getElementById(equipo2 + "-puntos")
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-f" + fecha))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-f" + fecha))
+
+    let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
+    console.log(GRUPOS + '|' + indexGrupos + ': :' + grupo)
+    let indexEquipo1 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo1)
+    let indexEquipo2 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo2)
+
+    if(golesEquipo1Input.value==golesEquipo2Input.value){
+      GRUPOS[indexGrupos].equipos[indexEquipo1].puntos = GRUPOS[indexGrupos].equipos[indexEquipo1].puntos + 1
+      GRUPOS[indexGrupos].equipos[indexEquipo2].puntos = GRUPOS[indexGrupos].equipos[indexEquipo2].puntos + 1 
+    }else{
+      if(golesEquipo1Input.value>golesEquipo2Input.value){
+        GRUPOS[indexGrupos].equipos[indexEquipo1].puntos = GRUPOS[indexGrupos].equipos[indexEquipo1].puntos + 3
+      }else{
+        GRUPOS[indexGrupos].equipos[indexEquipo2].puntos = GRUPOS[indexGrupos].equipos[indexEquipo2].puntos + 3 
+      }
+    }
+
+  }
+
+  updateGoals(grupo: string, local: string, visitante: string, fecha: string) {
+
     let golesLocal: HTMLElement | null
-    golesLocal = document.getElementById(id + "-gf")
+    golesLocal = document.getElementById(local + "-gf")
     let golesVisitante: HTMLElement | null
     golesVisitante = document.getElementById(visitante + "-gc")
     let golesLocalInput: HTMLInputElement | null
-    golesLocalInput = (<HTMLInputElement>document.getElementById(id))
+    golesLocalInput = (<HTMLInputElement>document.getElementById(local + "-f" + fecha))
 
     let golesVisitanteInput: HTMLInputElement | null
-    golesVisitanteInput = (<HTMLInputElement>document.getElementById(visitante + "-f"+fecha))
+    golesVisitanteInput = (<HTMLInputElement>document.getElementById(visitante + "-f" + fecha))
 
 
     let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
-    let index = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == id)
-    GRUPOS[indexGrupos].equipos[index].gf = parseInt(golesLocal?.textContent!) + 1
+    console.log(GRUPOS + '|' + indexGrupos + ': :' + grupo)
+    let index = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == local)
+    GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesLocalInput.value)
+    GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesVisitanteInput.value)
+
     index = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == visitante)
-    GRUPOS[indexGrupos].equipos[index].gc = parseInt(golesVisitante?.textContent!) + 1
+
+    GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesVisitanteInput.value)
+    GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesLocalInput.value)
 
 
   }
@@ -346,8 +382,8 @@ export class GruposComponent implements OnInit {
   }
 
   partidosGrupoA() {
-    
-    let partidos: { grupo:string,fecha: number; equipo1: string; equipo2: string; }[]=[]
+
+    let partidos: { grupo: string, fecha: number; equipo1: string; equipo2: string; }[] = []
 
     this.groups.forEach((elem, index) => {
       this.logicaFaseGrupos.forEach(rec => {
