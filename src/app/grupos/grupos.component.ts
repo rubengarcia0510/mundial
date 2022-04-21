@@ -3,59 +3,59 @@ import { elementAt } from 'rxjs';
 import { Grupo, Equipo, Partido } from '../Interfaces';
 
 var EQUIPOS_GRUPO_A: Equipo[] = [
-  { name: 'Qatar', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Holanda', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Senegal', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Ecuador', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Qatar', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Holanda', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Senegal', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Ecuador', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_B: Equipo[] = [
-  { name: 'Inglaterra', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'USA', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Iran', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Escocia, Gales o Ucrania', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Inglaterra', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'USA', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Iran', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Escocia, Gales o Ucrania', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_C: Equipo[] = [
-  { name: 'Argentina', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'México', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Polonia', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Arabia Saudita', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Argentina', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'México', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Polonia', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Arabia Saudita', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_D: Equipo[] = [
-  { name: 'Francia', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Dinamarca', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Túnez', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Emiratos Árabes Unidos, Australia o Perú', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Francia', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Dinamarca', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Túnez', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Emiratos Árabes Unidos, Australia o Perú', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_E: Equipo[] = [
-  { name: 'España', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Alemania', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Japón', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Costa Rica o Nueva Zelanda', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'España', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Alemania', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Japón', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Costa Rica o Nueva Zelanda', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_F: Equipo[] = [
-  { name: 'Bélgica', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Croacia', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Marruecos', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Canadá', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Bélgica', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Croacia', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Marruecos', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Canadá', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_G: Equipo[] = [
-  { name: 'Brasil', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Suiza', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Serbia', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Camerún', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Brasil', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Suiza', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Serbia', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Camerún', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_H: Equipo[] = [
-  { name: 'Portugal', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Uruguay', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Corea del Sur', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Ghana', pj: 0, pg: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Portugal', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Uruguay', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Corea del Sur', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Ghana', pj: 0, pg: 0, pp:0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var GRUPOS: Grupo[] = [
@@ -141,6 +141,37 @@ export class GruposComponent implements OnInit {
     console.log(event.target.checked)
     this.updateGoals(grupo, equipo1, equipo2, fecha)
     this.updatePuntos(grupo, equipo1, equipo2, fecha)
+    this.updatePartidos(grupo, equipo1, equipo2, fecha)
+  }
+
+  updatePartidos(grupo: string, equipo1: string, equipo2: string, fecha: string) {
+
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-f" + fecha))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-f" + fecha))
+
+    let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
+    let indexEquipo1 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo1)
+    let indexEquipo2 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo2)
+
+    GRUPOS[indexGrupos].equipos[indexEquipo1].pj = GRUPOS[indexGrupos].equipos[indexEquipo1].pj + 1
+    GRUPOS[indexGrupos].equipos[indexEquipo2].pj = GRUPOS[indexGrupos].equipos[indexEquipo2].pj + 1
+
+    if(golesEquipo1Input.value==golesEquipo2Input.value){
+      GRUPOS[indexGrupos].equipos[indexEquipo1].pe = GRUPOS[indexGrupos].equipos[indexEquipo1].pe + 1
+      GRUPOS[indexGrupos].equipos[indexEquipo2].pe = GRUPOS[indexGrupos].equipos[indexEquipo2].pe + 1 
+    }else{
+      if(golesEquipo1Input.value>golesEquipo2Input.value){
+        GRUPOS[indexGrupos].equipos[indexEquipo1].pg = GRUPOS[indexGrupos].equipos[indexEquipo1].pg + 1
+        GRUPOS[indexGrupos].equipos[indexEquipo2].pp = GRUPOS[indexGrupos].equipos[indexEquipo2].pp + 1
+      }else{
+        GRUPOS[indexGrupos].equipos[indexEquipo1].pp = GRUPOS[indexGrupos].equipos[indexEquipo1].pp + 1
+        GRUPOS[indexGrupos].equipos[indexEquipo2].pg = GRUPOS[indexGrupos].equipos[indexEquipo2].pg + 1
+      }
+    }
+
   }
 
   updatePuntos(grupo: string, equipo1: string, equipo2: string, fecha: string) {
