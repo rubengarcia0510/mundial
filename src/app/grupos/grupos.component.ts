@@ -139,32 +139,32 @@ export class GruposComponent implements OnInit {
     this.updatePuntos(grupo, equipo1, equipo2, fecha)
     this.updatePartidos(grupo, equipo1, equipo2, fecha)
     this.sortPuntos(grupo)
-    
+
   }
 
-  sortPuntos(grupo:string) {
+  sortPuntos(grupo: string) {
     let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
     GRUPOS[indexGrupos].equipos.sort(function (x, y) {
-      let diffX:number=x.gf-x.gc
-      let diffY:number=y.gf-y.gc
-      if(x.puntos == y.puntos && diffX == diffY) {
-        return 0; 
+      let diffX: number = x.gf - x.gc
+      let diffY: number = y.gf - y.gc
+      if (x.puntos == y.puntos && diffX == diffY) {
+        return 0;
       }
-      if(x.puntos < y.puntos && diffX < diffY) {
+      if (x.puntos < y.puntos && diffX < diffY) {
         return -1;
       }
       return 1;
     });
-    
-    let aux:Equipo[]=[]
+
+    let aux: Equipo[] = []
 
     aux.push(GRUPOS[indexGrupos].equipos[3])
     aux.push(GRUPOS[indexGrupos].equipos[2])
     aux.push(GRUPOS[indexGrupos].equipos[1])
     aux.push(GRUPOS[indexGrupos].equipos[0])
 
-    GRUPOS[indexGrupos].equipos=aux
-    
+    GRUPOS[indexGrupos].equipos = aux
+
     console.table(GRUPOS[indexGrupos].equipos)
   }
 
@@ -339,7 +339,7 @@ export class GruposComponent implements OnInit {
   }
 
   cuartosFinal() {
-    let octavos = this.octavosFinal()
+    let octavos = this.partidosOctavos
     let partido1: Partido =
     {
       equipo1: octavos[4].partido.ganador,
@@ -387,7 +387,7 @@ export class GruposComponent implements OnInit {
   }
 
   semiFinal() {
-    let cuartos = this.cuartosFinal()
+    let cuartos = this.partidosCuartos
     let partido1: Partido =
     {
       equipo1: cuartos[0].partido.ganador,
@@ -416,7 +416,7 @@ export class GruposComponent implements OnInit {
   }
 
   final() {
-    let semifinal = this.semiFinal()
+    let semifinal = this.partidosSemi
     let finalMatch: Partido =
     {
       equipo1: semifinal[0].partido.ganador,
