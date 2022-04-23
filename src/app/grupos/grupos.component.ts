@@ -242,8 +242,8 @@ export class GruposComponent implements OnInit {
 
 
     let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
-    console.log(GRUPOS + '|' + indexGrupos + ': :' + grupo)
     let index = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == local)
+
     GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesLocalInput.value)
     GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesVisitanteInput.value)
 
@@ -251,6 +251,29 @@ export class GruposComponent implements OnInit {
 
     GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesVisitanteInput.value)
     GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesLocalInput.value)
+
+
+  }
+
+  updateGanador(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase:string) {
+
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-"+fase))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-"+fase))
+
+    if (golesEquipo1Input.value > golesEquipo2Input.value) {
+      nombreArray[index].partido.ganador = equipo1
+    } else {
+      nombreArray[index].partido.ganador = equipo2
+    }
+    
+    this.partidosOctavos.forEach((array: any)=>{
+      console.table(array)
+    })
+    this.cuartosFinal()
+
 
 
   }
@@ -382,6 +405,8 @@ export class GruposComponent implements OnInit {
       { partido: partido3 },
       { partido: partido4 }
     ];
+
+    this.partidosCuartos=cuartos
 
     return cuartos;
   }

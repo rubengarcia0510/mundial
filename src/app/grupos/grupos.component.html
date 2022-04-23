@@ -52,11 +52,12 @@
   <h3>Octavos de Final</h3>
   <form>
     <table>
-      <tr *ngFor="let row of partidosOctavos">
+      <tr *ngFor="let row of partidosOctavos;let i=index">
         <td>{{row.partido.equipo1}}</td>
-        <td><input type="number"></td>
+        <td><input id={{row.partido.equipo1}}-octavos type="number" value=0></td>
         <td>{{row.partido.equipo2}}</td>
-        <td><input type="number"></td>
+        <td><input id={{row.partido.equipo2}}-octavos type="number" value=0></td>
+        <td><input type="checkbox" (click)="updateGanador($event,row.partido.equipo1,row.partido.equipo2,partidosOctavos,i,'octavos')"></td>
       </tr>
     </table>
   </form>
