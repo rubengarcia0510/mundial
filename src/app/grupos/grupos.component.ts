@@ -255,14 +255,16 @@ export class GruposComponent implements OnInit {
 
   }
 
-  updateGanador(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase:string) {
+  updateGanadorOctavos(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase:string) {
+    console.table(nombreArray)
 
     let golesEquipo1Input: HTMLInputElement | null
     golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-"+fase))
 
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-"+fase))
-
+    console.log(golesEquipo1Input)
+    console.log(golesEquipo2Input)
     if (golesEquipo1Input.value > golesEquipo2Input.value) {
       nombreArray[index].partido.ganador = equipo1
     } else {
@@ -273,6 +275,33 @@ export class GruposComponent implements OnInit {
       console.table(array)
     })
     this.cuartosFinal()
+
+
+
+  }
+
+
+
+  updateGanadorCuartos(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase:string) {
+    console.table(nombreArray)
+
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-"+fase))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-"+fase))
+    console.log(golesEquipo1Input)
+    console.log(golesEquipo2Input)
+    if (golesEquipo1Input.value > golesEquipo2Input.value) {
+      nombreArray[index].partido.ganador = equipo1
+    } else {
+      nombreArray[index].partido.ganador = equipo2
+    }
+    
+    this.partidosCuartos.forEach((array: any)=>{
+      console.table(array)
+    })
+    this.semiFinal()
 
 
 
@@ -396,7 +425,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: octavos[3].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'Belgica'
+      ganador: 'Argentina'
     }
 
     let cuartos = [
@@ -436,6 +465,7 @@ export class GruposComponent implements OnInit {
       { partido: partido2 },
     ];
 
+    this.partidosSemi=semi
     return semi;
 
   }
