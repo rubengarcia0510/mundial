@@ -2,6 +2,7 @@ export interface Equipo {
     name: string;
     pj:number;
     pg:number;
+    pp:number;
     pe:number;
     gf:number;
     gc:number;
