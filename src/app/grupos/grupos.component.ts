@@ -110,6 +110,7 @@ export class GruposComponent implements OnInit {
   partidosSemi: any = []
   partidosFinal: any = []
   groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+  ganador:string
 
   logicaFaseGrupos = [
     { fecha: 1, equipo1: 0, equipo2: 3 },
@@ -127,6 +128,7 @@ export class GruposComponent implements OnInit {
     this.partidosSemi = this.semiFinal()
     this.partidosFinal = this.final()
     this.partidosFaseGrupos = this.partidosGrupoA()
+    this.ganador=""
   }
 
   ngOnInit(): void {
@@ -255,14 +257,14 @@ export class GruposComponent implements OnInit {
 
   }
 
-  updateGanadorOctavos(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase:string) {
+  updateGanadorOctavos(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase: string) {
     console.table(nombreArray)
 
     let golesEquipo1Input: HTMLInputElement | null
-    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-"+fase))
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-" + fase))
 
     let golesEquipo2Input: HTMLInputElement | null
-    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-"+fase))
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
     console.log(golesEquipo1Input)
     console.log(golesEquipo2Input)
     if (golesEquipo1Input.value > golesEquipo2Input.value) {
@@ -270,8 +272,8 @@ export class GruposComponent implements OnInit {
     } else {
       nombreArray[index].partido.ganador = equipo2
     }
-    
-    this.partidosOctavos.forEach((array: any)=>{
+
+    this.partidosOctavos.forEach((array: any) => {
       console.table(array)
     })
     this.cuartosFinal()
@@ -282,14 +284,14 @@ export class GruposComponent implements OnInit {
 
 
 
-  updateGanadorCuartos(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase:string) {
+  updateGanadorCuartos(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase: string) {
     console.table(nombreArray)
 
     let golesEquipo1Input: HTMLInputElement | null
-    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-"+fase))
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-" + fase))
 
     let golesEquipo2Input: HTMLInputElement | null
-    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-"+fase))
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
     console.log(golesEquipo1Input)
     console.log(golesEquipo2Input)
     if (golesEquipo1Input.value > golesEquipo2Input.value) {
@@ -297,11 +299,61 @@ export class GruposComponent implements OnInit {
     } else {
       nombreArray[index].partido.ganador = equipo2
     }
-    
-    this.partidosCuartos.forEach((array: any)=>{
+
+    this.partidosCuartos.forEach((array: any) => {
       console.table(array)
     })
     this.semiFinal()
+
+
+
+  }
+
+  updateGanadorSemi(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase: string) {
+    console.table(nombreArray)
+
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-" + fase))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
+    console.log(golesEquipo1Input)
+    console.log(golesEquipo2Input)
+    if (golesEquipo1Input.value > golesEquipo2Input.value) {
+      nombreArray[index].partido.ganador = equipo1
+    } else {
+      nombreArray[index].partido.ganador = equipo2
+    }
+
+    this.partidosSemi.forEach((array: any) => {
+      console.table(array)
+    })
+    this.final()
+
+
+
+  }
+
+  updateGanadorFinal(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase: string) {
+    console.table(nombreArray)
+
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-" + fase))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
+    console.log(golesEquipo1Input)
+    console.log(golesEquipo2Input)
+    if (golesEquipo1Input.value > golesEquipo2Input.value) {
+      nombreArray[index].partido.ganador = equipo1
+    } else {
+      nombreArray[index].partido.ganador = equipo2
+    }
+
+    this.partidosFinal.forEach((array: any) => {
+      console.table(array)
+    })
+    this.ganador=nombreArray[index].partido.ganador
 
 
 
@@ -435,7 +487,7 @@ export class GruposComponent implements OnInit {
       { partido: partido4 }
     ];
 
-    this.partidosCuartos=cuartos
+    this.partidosCuartos = cuartos
 
     return cuartos;
   }
@@ -465,7 +517,7 @@ export class GruposComponent implements OnInit {
       { partido: partido2 },
     ];
 
-    this.partidosSemi=semi
+    this.partidosSemi = semi
     return semi;
 
   }
@@ -486,6 +538,8 @@ export class GruposComponent implements OnInit {
     let final = [
       { partido: finalMatch }
     ];
+
+    this.partidosFinal = final
 
     return final;
 
