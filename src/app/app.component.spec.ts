@@ -21,8 +21,7 @@ describe('AppComponent', () => {
         MatToolbarModule,
         MatIconModule,
         MatMenuModule
-
-    ]
+      ]
     }).compileComponents();
   });
 
