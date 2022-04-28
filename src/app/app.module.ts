@@ -9,6 +9,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GrupoComponent } from './grupo/grupo.component';
 
@@ -26,6 +27,7 @@ import { GrupoComponent } from './grupo/grupo.component';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatTabsModule,
     BrowserAnimationsModule
    
   ],

@@ -1,112 +1,111 @@
 <mat-toolbar style="position: fixed;z-index:1000; grid-column-gap: 10px;" color="primary">
-  <button type="button" [matMenuTriggerFor]="settingsMenu">
-    <mat-icon>menu</mat-icon>
-  </button>
-
-  <mat-menu #settingsMenu>
-    <menu mat-menu-item>Profile</menu>
-    <menu mat-menu-item>Account</menu>
-  </mat-menu>
   <span>World Cup - Qatar 2022</span>
 </mat-toolbar>
-<mat-card style="padding-left: 5em;">
 
-  <div style="display: flex;
-              grid-column-gap: 25px; 
-              margin-top:50px;
-              flex-wrap: wrap;">
-    <div *ngFor="let grupo of grupos">
-      <app-grupo style="margin-top: 30px;" [groupName]="grupo"></app-grupo>
-    </div>
-  </div>
-</mat-card>
-<mat-card>
-  <h3>Fase de Grupos</h3>
-  <h3>Grupo A</h3>
-  <form>
-    <table>
-      <ng-container *ngFor="let row of partidosFaseGrupos;let i=index">
-        <ng-container *ngIf="(i%6)==0">
-          <tr>Grupo {{row.grupo}}</tr>
-        </ng-container>
-        <ng-container *ngIf="(i%2)==0">
-          <tr>Fecha {{row.fecha}}</tr>
-        </ng-container>
-        <tr>
-          <td>{{row.equipo1}}</td>
-          <td><input id={{row.equipo1}}-f{{row.fecha}} type="number" value="0"></td>
-          <td>{{row.equipo2}}</td>
-          <td><input id={{row.equipo2}}-f{{row.fecha}} type="number" value="0"></td>
-          <td><input type="checkbox" (click)="updateGrupo($event,row.grupo,row.equipo1,row.equipo2,row.fecha)"></td>
-        </tr>
+<mat-tab-group style="position:fixed;top:60px;">
+  <mat-tab label="Fase de Grupos - Tablas de Posiciones">
+    <mat-card style="padding-left: 5em;">
 
+      <div style="display: flex;
+                  grid-column-gap: 25px; 
+                  margin-top:50px;
+                  flex-wrap: wrap;">
+        <div *ngFor="let grupo of grupos">
+          <app-grupo style="margin-top: 30px;" [groupName]="grupo"></app-grupo>
+        </div>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Fase de Grupos - Fixture">
+    <mat-card>
+      <form>
+        <table>
+          <ng-container *ngFor="let row of partidosFaseGrupos;let i=index">
+            <ng-container *ngIf="(i%6)==0">
+              <tr>Grupo {{row.grupo}}</tr>
+            </ng-container>
+            <ng-container *ngIf="(i%2)==0">
+              <tr>Fecha {{row.fecha}}</tr>
+            </ng-container>
+            <tr>
+              <td>{{row.equipo1}}</td>
+              <td><input id={{row.equipo1}}-f{{row.fecha}} type="number" value="0"></td>
+              <td>{{row.equipo2}}</td>
+              <td><input id={{row.equipo2}}-f{{row.fecha}} type="number" value="0"></td>
+              <td><input type="checkbox" (click)="updateGrupo($event,row.grupo,row.equipo1,row.equipo2,row.fecha)"></td>
+            </tr>
+          </ng-container>
+        </table>
+      </form>
+    </mat-card>
 
-      </ng-container>
-    </table>
-  </form>
-</mat-card>
-<mat-card>
-  <h3>Fase Final</h3>
-</mat-card>
-<mat-card>
-  <h3>Octavos de Final</h3>
-  <form>
-    <table>
-      <tr *ngFor="let row of partidosOctavos;let i=index">
-        <td>{{row.partido.equipo1}}</td>
-        <td><input id={{row.partido.equipo1}}-octavos type="number" value=0></td>
-        <td>{{row.partido.equipo2}}</td>
-        <td><input id={{row.partido.equipo2}}-octavos type="number" value=0></td>
-        <td><input type="checkbox" (click)="updateGanadorOctavos($event,row.partido.equipo1,row.partido.equipo2,partidosOctavos,i,'octavos')"></td>
-      </tr>
-    </table>
-  </form>
+  </mat-tab>
+  <mat-tab label="Octavos de Final">
+    <mat-card>
+      <form>
+        <table>
+          <tr *ngFor="let row of partidosOctavos;let i=index">
+            <td>{{row.partido.equipo1}}</td>
+            <td><input id={{row.partido.equipo1}}-octavos type="number" value=0></td>
+            <td>{{row.partido.equipo2}}</td>
+            <td><input id={{row.partido.equipo2}}-octavos type="number" value=0></td>
+            <td><input type="checkbox" (click)="updateGanadorOctavos($event,row.partido.equipo1,row.partido.equipo2,partidosOctavos,i,'octavos')"></td>
+          </tr>
+        </table>
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Cuartos de Final">
+    <mat-card>
+      <form>
+        <table>
+          <tr *ngFor="let row of partidosCuartos;let i=index">
+            <td>{{row.partido.equipo1}}</td>
+            <td><input id={{row.partido.equipo1}}-cuartos type="number" value=0></td>
+            <td>{{row.partido.equipo2}}</td>
+            <td><input id={{row.partido.equipo2}}-cuartos type="number" value=0></td>
+            <td><input type="checkbox" (click)="updateGanadorCuartos($event,row.partido.equipo1,row.partido.equipo2,partidosCuartos,i,'cuartos')"></td>
+          </tr>
+        </table>
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Semifinal">
+    <mat-card>
+      <form>
+        <table>
+          <tr *ngFor="let row of partidosSemi;let i=index">
+            <td>{{row.partido.equipo1}}</td>
+            <td><input id={{row.partido.equipo1}}-semi type="number" value=0></td>
+            <td>{{row.partido.equipo2}}</td>
+            <td><input id={{row.partido.equipo2}}-semi type="number" value=0></td>
+            <td><input type="checkbox" (click)="updateGanadorSemi($event,row.partido.equipo1,row.partido.equipo2,partidosSemi,i,'semi')"></td>
+          </tr>
+        </table>
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Final">
+    <mat-card>
+      <h3>Final</h3>
+      <form>
+        <table>
+          <tr *ngFor="let row of partidosFinal;let i=index">
+            <td>{{row.partido.equipo1}}</td>
+            <td><input id={{row.partido.equipo1}}-final type="number" value=0></td>
+            <td>{{row.partido.equipo2}}</td>
+            <td><input id={{row.partido.equipo2}}-final type="number" value=0></td>
+            <td><input type="checkbox" (click)="updateGanadorFinal($event,row.partido.equipo1,row.partido.equipo2,partidosFinal,i,'final')"></td>
+          </tr>
+        </table>
+      </form>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Ganador">
+    <mat-card>
+      <h1>Ganador</h1>
+      <h1>{{ganador}}</h1>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
 
-
-</mat-card>
-<mat-card>
-  <h3>Cuartos de Final</h3>
-  <form>
-    <table>
-      <tr *ngFor="let row of partidosCuartos;let i=index">
-        <td>{{row.partido.equipo1}}</td>
-        <td><input id={{row.partido.equipo1}}-cuartos type="number" value=0></td>
-        <td>{{row.partido.equipo2}}</td>
-        <td><input id={{row.partido.equipo2}}-cuartos type="number" value=0></td>
-        <td><input type="checkbox" (click)="updateGanadorCuartos($event,row.partido.equipo1,row.partido.equipo2,partidosCuartos,i,'cuartos')"></td>
-      </tr>
-    </table>
-  </form>
-</mat-card>
-<mat-card>
-  <h3>Semifinal</h3>
-  <form>
-    <table>
-      <tr *ngFor="let row of partidosSemi;let i=index">
-        <td>{{row.partido.equipo1}}</td>
-        <td><input id={{row.partido.equipo1}}-semi type="number" value=0></td>
-        <td>{{row.partido.equipo2}}</td>
-        <td><input id={{row.partido.equipo2}}-semi type="number" value=0></td>
-        <td><input type="checkbox" (click)="updateGanadorSemi($event,row.partido.equipo1,row.partido.equipo2,partidosSemi,i,'semi')"></td>
-      </tr>
-    </table>
-  </form>
-</mat-card>
-<mat-card>
-  <h3>Final</h3>
-  <form>
-    <table>
-      <tr *ngFor="let row of partidosFinal;let i=index">
-        <td>{{row.partido.equipo1}}</td>
-        <td><input id={{row.partido.equipo1}}-final type="number" value=0></td>
-        <td>{{row.partido.equipo2}}</td>
-        <td><input id={{row.partido.equipo2}}-final type="number" value=0></td>
-        <td><input type="checkbox" (click)="updateGanadorFinal($event,row.partido.equipo1,row.partido.equipo2,partidosFinal,i,'final')"></td>
-      </tr>
-    </table>
-  </form>
-</mat-card>
-<mat-card>
-  <h1>Ganador</h1>
-  <h1>{{ganador}}</h1>
-</mat-card>
