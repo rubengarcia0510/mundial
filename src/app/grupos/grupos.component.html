@@ -49,7 +49,9 @@
             <td><input id={{row.partido.equipo1}}-octavos type="number" value=0></td>
             <td>{{row.partido.equipo2}}</td>
             <td><input id={{row.partido.equipo2}}-octavos type="number" value=0></td>
-            <td><input type="checkbox" (click)="updateGanadorOctavos($event,row.partido.equipo1,row.partido.equipo2,partidosOctavos,i,'octavos')"></td>
+            <td><input type="checkbox"
+                (click)="updateGanadorOctavos($event,row.partido.equipo1,row.partido.equipo2,partidosOctavos,i,'octavos')">
+            </td>
           </tr>
         </table>
       </form>
@@ -64,7 +66,9 @@
             <td><input id={{row.partido.equipo1}}-cuartos type="number" value=0></td>
             <td>{{row.partido.equipo2}}</td>
             <td><input id={{row.partido.equipo2}}-cuartos type="number" value=0></td>
-            <td><input type="checkbox" (click)="updateGanadorCuartos($event,row.partido.equipo1,row.partido.equipo2,partidosCuartos,i,'cuartos')"></td>
+            <td><input type="checkbox"
+                (click)="updateGanadorCuartos($event,row.partido.equipo1,row.partido.equipo2,partidosCuartos,i,'cuartos')">
+            </td>
           </tr>
         </table>
       </form>
@@ -79,7 +83,8 @@
             <td><input id={{row.partido.equipo1}}-semi type="number" value=0></td>
             <td>{{row.partido.equipo2}}</td>
             <td><input id={{row.partido.equipo2}}-semi type="number" value=0></td>
-            <td><input type="checkbox" (click)="updateGanadorSemi($event,row.partido.equipo1,row.partido.equipo2,partidosSemi,i,'semi')"></td>
+            <td><input type="checkbox"
+                (click)="updateGanadorSemi($event,row.partido.equipo1,row.partido.equipo2,partidosSemi,i,'semi')"></td>
           </tr>
         </table>
       </form>
@@ -95,7 +100,9 @@
             <td><input id={{row.partido.equipo1}}-final type="number" value=0></td>
             <td>{{row.partido.equipo2}}</td>
             <td><input id={{row.partido.equipo2}}-final type="number" value=0></td>
-            <td><input type="checkbox" (click)="updateGanadorFinal($event,row.partido.equipo1,row.partido.equipo2,partidosFinal,i,'final')"></td>
+            <td><input type="checkbox"
+                (click)="updateGanadorFinal($event,row.partido.equipo1,row.partido.equipo2,partidosFinal,i,'final')">
+            </td>
           </tr>
         </table>
       </form>
@@ -108,4 +115,539 @@
     </mat-card>
   </mat-tab>
 </mat-tab-group>
-
+<mat-card style="top:900px">
+  <div class="rd-tbl-2">
+    <div style="min-width: 537px;">
+      <table>
+        <tbody>
+          <tr class="t-enc-2">
+            <td height="25"> Octavos</td>
+            <td></td>
+            <td> Cuartos</td>
+            <td></td>
+            <td colspan="2">Semifinales</td>
+            <td></td>
+            <td colspan="3">Partido Final</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td width="24%" height="3"></td>
+            <td width="4%"></td>
+            <td width="20%"></td>
+            <td width="4%"></td>
+            <td width="6%"></td>
+            <td width="14%"></td>
+            <td width="4%"></td>
+            <td width="6%"></td>
+            <td width="4%"></td>
+            <td width="10%"></td>
+            <td width="4%"></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/italia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;" alt="Italia">
+              {{partidosOctavos[0].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_italia_uruguay.php">2</a></td>
+            <td></td>
+            <td rowspan="4"></td>
+            <td colspan="2" rowspan="5"></td>
+            <td rowspan="5"></td>
+            <td colspan="3" rowspan="5"></td>
+            <td rowspan="5"></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td rowspan="3" background="../../assets/bracket_linedown.gif" style="background-repeat: no-repeat;"></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"> <img src="../../assets/uruguay_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Uruguay">{{partidosOctavos[0].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_italia_uruguay.php">0</a></td>
+          </tr>
+          <tr>
+            <td rowspan="4"></td>
+            <td height="9"></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"><img src="../../assets/italia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;" alt="Italia">
+                {{partidosCuartos[1].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_italia_irlanda.php">1</a></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td colspan="2" rowspan="10" background="../../assets/bracket_linedown.gif"
+              style="background-repeat: no-repeat;"></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/irlanda_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Irlanda"> {{partidosCuartos[1].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_italia_irlanda.php">0</a></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td></td>
+            <td height="1" colspan="3" class=""></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td></td>
+            <td height="1" colspan="2" class=""></td>
+            <td class="a-center "></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td></td>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td></td>
+            <td height="1" colspan="2" class=""> </td>
+            <td class="a-center "></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td height="8"></td>
+            <td rowspan="3" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"> <img src="../../assets/irlanda_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Irlanda">{{partidosOctavos[2].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_irlanda_rumania.php">0(5)</a></td>
+            <td></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"> <img src="../../assets/rumania_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Rumania">{{partidosOctavos[2].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_irlanda_rumania.php">0(4)</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3" rowspan="3"></td>
+            <td height="25" colspan="3" class="game"> <img src="../../assets/italia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;" alt="Italia">
+                {{partidosSemi[0].partido.equipo1}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_italia_argentina.php">1(3)</a></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td colspan="2"></td>
+            <td></td>
+            <td colspan="2" rowspan="10" background="../../assets/bracket_linedownf.gif"
+              style="background-repeat: no-repeat;"></td>
+            <td rowspan="10" background="../../assets/bracket_linedown.gif" style="background-repeat: no-repeat;"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="3" class="game"> <img src="../../assets/argentina_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Argentina"> {{partidosSemi[0].partido.equipo2}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_italia_argentina.php">1(4)</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/brasil_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;" alt="Brasil">
+                {{partidosOctavos[4].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_brasil_argentina.php">0</a></td>
+            <td></td>
+            <td></td>
+            <td rowspan="6" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td rowspan="14" background="../../assets/bracket_lineupf.gif"
+              style="background-repeat: no-repeat; background-position: top left"></td>
+            <td rowspan="8"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td rowspan="3" background="../../assets/bracket_linedown.gif" style="background-repeat: no-repeat;"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"> <img src="../../assets/argentina_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Argentina"> {{partidosOctavos[4].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_brasil_argentina.php">1</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td rowspan="5"></td>
+            <td height="8"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/argentina_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Argentina"> {{partidosCuartos[0].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_argentina_yugoslavia.php">0(3)</a> </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/yugoslavia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Yugoslavia"> {{partidosCuartos[0].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_argentina_yugoslavia.php">0(2)</a> </td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="8"></td>
+            <td rowspan="3" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td colspan="2" rowspan="4"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/espana_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;" alt="España">
+                {{partidosOctavos[6].partido.equipo1}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_espana_yugoslavia.php">1</a></td>
+            <td height="25" colspan="5" class="a-center game"><b>Final</b></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td colspan="5"></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/yugoslavia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Yugoslavia"> {{partidosOctavos[6].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_espana_yugoslavia.php">2</a></td>
+            <td></td>
+            <td colspan="4" class="game"> <img src="../../assets/argentina_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Argentina"> {{partidosFinal[0].partido.equipo1}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_argentina_alemania_occidental.php">0</a></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="3"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="5" rowspan="3"></td>
+            <td height="25" colspan="4" class="game"><img src="../../assets/alemania_occidental_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Alemania Occidental"> {{partidosFinal[0].partido.equipo2}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_argentina_alemania_occidental.php">1</a></td>
+          </tr>
+          <tr>
+            <td height="15"></td>
+            <td></td>
+            <td></td>
+            <td rowspan="20" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left;"></td>
+            <td rowspan="21"></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="4" class="a-center game"><b>Tercer Puesto</b></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/camerun_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Camerún"> {{partidosOctavos[4].partido.equipo1}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_camerun_colombia.php">2</a> </td>
+            <td></td>
+            <td colspan="2" rowspan="4"></td>
+            <td colspan="3" class="game"> <img src="../../assets/italia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;" alt="Italia">
+              Italia</td>
+            <td class="a-center gameresult">
+              <a href="../partidos/1990_italia_inglaterra.php">2</a>
+            </td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td rowspan="3" background="../../assets/bracket_linedown.gif" style="background-repeat: no-repeat;"></td>
+            <td background="../../assets/bracket_linedownf.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/colombia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Colombia"> {{partidosOctavos[4].partido.equipo2}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_camerun_colombia.php">1</a></td>
+            <td colspan="3" class="game"> <img src="../../assets/inglaterra_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Inglaterra"> Inglaterra</td>
+            <td class="a-center gameresult">
+              <a href="../partidos/1990_italia_inglaterra.php">1</a>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="5"></td>
+            <td height="8"></td>
+            <td rowspan="12" background="../../assets/bracket_lineupf.gif"
+              style="background-repeat: no-repeat; background-position: top left"></td>
+            <td rowspan="8"></td>
+            <td colspan="2" rowspan="14" background="../../assets/bracket_lineupf.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/camerun_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Camerún"> {{partidosCuartos[2].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_camerun_inglaterra.php">2</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td rowspan="10" background="../../assets/bracket_linedown.gif" style="background-repeat: no-repeat;"></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/inglaterra_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Inglaterra"> {{partidosCuartos[2].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_camerun_inglaterra.php">3</a></td>
+          </tr>
+          <tr>
+            <td height="8"></td>
+            <td rowspan="3" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/inglaterra_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Inglaterra"> {{partidosOctavos[7].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_inglaterra_belgica.php">1</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"><img src="../../assets/belgica_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Bélgica"> {{partidosOctavos[7].partido.equipo2}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_inglaterra_belgica.php">0</a></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1" colspan="2" class=""></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1" class=""> </td>
+            <td class="a-center "></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1" class=""> </td>
+            <td class="a-center "></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="3" rowspan="3"></td>
+            <td height="25" colspan="3" class="game"> <img src="../../assets/inglaterra_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Inglaterra"> {{partidosSemi[1].partido.equipo1}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_inglaterra_alemania_occidental.php">1(3)</a></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td colspan="2"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="3" class="game"> <img src="../../assets/alemania_occidental_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Alemania Occidental"> {{partidosSemi[1].partido.equipo2}}</td>
+            <td class="a-center gameresult"><a href="../partidos/1990_inglaterra_alemania_occidental.php">1(4)</a></td>
+            <td colspan="3"></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"> <img src="../../assets/alemania_occidental_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Alemania Occidental"> {{partidosOctavos[1].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_holanda.php">2</a> </td>
+            <td></td>
+            <td></td>
+            <td colspan="2" rowspan="10" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td colspan="5" rowspan="11"></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td rowspan="7" background="../../assets/bracket_linedown.gif" style="background-repeat: no-repeat;"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game"> <img src="../../assets/holanda_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Holanda"> {{partidosOctavos[1].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_holanda.php">1</a> </td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1" colspan="2" class=""></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1" class=""> </td>
+            <td class="a-center "></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr class="pad-0">
+            <td height="1" class=""> </td>
+            <td class="a-center "></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td rowspan="5"></td>
+            <td height="8"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/alemania_occidental_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Alemania Occidental"> {{partidosCuartos[3].partido.equipo1}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_checoslovaquia.php">1</a>
+            </td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" colspan="2" class="game"> <img src="../../assets/checoslovaquia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Checoslovaquia"> {{partidosCuartos[3].partido.equipo2}}</td>
+            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_checoslovaquia.php">0</a>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+          <tr>
+            <td height="9"></td>
+            <td rowspan="3" background="../../assets/bracket_lineup.gif"
+              style="background-repeat: no-repeat; background-position: bottom left"></td>
+            <td colspan="8" rowspan="4"></td>
+          </tr>
+          <tr>
+            <td height="25" class="game">
+              <img src="../../assets/checoslovaquia_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Checoslovaquia"> {{partidosOctavos[3].partido.equipo1}}
+            </td>
+            <td class="a-center gameresult"><a href="../partidos/1990_checoslovaquia_costa_rica.php">4</a></td>
+          </tr>
+          <tr>
+            <td height="1"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td height="25" class="game">
+              <img src="../../assets/costa_rica_min.png"
+                style="width: 30px; height: auto; border: 1px solid; margin: 2px; vertical-align: middle;"
+                alt="Costa Rica"> {{partidosOctavos[3].partido.equipo2}}
+            </td>
+            <td class="a-center gameresult"><a href="../partidos/1990_checoslovaquia_costa_rica.php">1</a></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</mat-card>
