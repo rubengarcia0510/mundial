@@ -1,13 +1,22 @@
 name: mundial
 
 build:
+  api:
+    context: api
   frontend:
     context: frontend
 deploy:
-  - helm upgrade --install mundial chart --set frontend.image=${OKTETO_BUILD_FRONTEND_IMAGE}
+  - helm upgrade --install movies chart --set api.image=${OKTETO_BUILD_API_IMAGE} --set frontend.image=${OKTETO_BUILD_FRONTEND_IMAGE}
 dev:
+  api:
+    command: ["bash"]
+    forward:
+      - 8080:8080
+      - 9229:9229
+    sync:
+      - api:/usr/src/app
   frontend:
-    command: yarn start
+    command: npm start
     sync:
       - frontend:/usr/src/app
 
