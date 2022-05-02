@@ -1,5 +1,5 @@
 import { Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { elementAt } from 'rxjs';
+import { FlagsService } from '../flags.service';
 import { Grupo, Equipo, Partido } from '../Interfaces';
 
 var EQUIPOS_GRUPO_A: Equipo[] = [
@@ -121,7 +121,7 @@ export class GruposComponent implements OnInit {
     { fecha: 3, equipo1: 2, equipo2: 3 },
   ]
 
-  constructor() {
+  constructor(flagService:FlagsService) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
@@ -129,10 +129,13 @@ export class GruposComponent implements OnInit {
     this.partidosFinal = this.final()
     this.partidosFaseGrupos = this.partidosGrupoA()
     this.ganador=""
+    
+    console.log(flagService.getFlag("Argentina"))
   }
 
   ngOnInit(): void {
     this.grupos = GRUPOS
+    
   }
 
   updateGrupo(event: any, grupo: string, equipo1: string, equipo2: string, fecha: string) {
