@@ -21,3 +21,8 @@ export interface Equipo {
     golesEquipo2:number;
     ganador:string;
   }
+
+  export interface Bandera{
+    country:string;
+    flag:string;
+  }
