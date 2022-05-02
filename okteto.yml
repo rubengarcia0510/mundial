@@ -1,31 +1,13 @@
 name: mundial
 
-
 build:
-   my-service:
-     context: .
-
-
-# The deploy section defines how to deploy your development environment
-# More info: https://www.okteto.com/docs/reference/manifest/#deploy
+  frontend:
+    context: frontend
 deploy:
-  commands:
-    - name: Deploy
-      command: helm upgrade --install app chart --set image=${OKTETO_BUILD_API_IMAGE}
-
-# The dependencies section defines other git repositories to be deployed as part of your development environment
-# More info: https://www.okteto.com/docs/reference/manifest/#dependencies
-  dependencies:
-    - https://github.com/rubengarcia0510/mundial
-  dev:
-   sample:
-     image: okteto/dev:latest
-     command: bash
-     workdir: /usr/src/app
-     sync:
-       - .:/usr/src/app
-     environment:
-       - name=$USER
-     forward:
-       - 8080:80
+  - helm upgrade --install mundial chart --set frontend.image=${OKTETO_BUILD_FRONTEND_IMAGE}
+dev:
+  frontend:
+    command: yarn start
+    sync:
+      - frontend:/usr/src/app
 
