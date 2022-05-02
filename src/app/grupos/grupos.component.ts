@@ -1,6 +1,6 @@
 import { Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FlagsService } from '../flags.service';
-import { Grupo, Equipo, Partido } from '../Interfaces';
+import { Grupo, Equipo, Partido, Bandera } from '../Interfaces';
 
 var EQUIPOS_GRUPO_A: Equipo[] = [
   { name: 'Qatar', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
@@ -111,6 +111,7 @@ export class GruposComponent implements OnInit {
   partidosFinal: any = []
   groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
   ganador:string
+  flagEquipo: Bandera[]
 
   logicaFaseGrupos = [
     { fecha: 1, equipo1: 0, equipo2: 3 },
@@ -121,7 +122,8 @@ export class GruposComponent implements OnInit {
     { fecha: 3, equipo1: 2, equipo2: 3 },
   ]
 
-  constructor(flagService:FlagsService) {
+  prueba:any=[]
+  constructor(public flagService:FlagsService) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
@@ -129,12 +131,22 @@ export class GruposComponent implements OnInit {
     this.partidosFinal = this.final()
     this.partidosFaseGrupos = this.partidosGrupoA()
     this.ganador=""
+    this.flagEquipo=flagService.getFlags()
+    
     
     console.log(flagService.getFlag("Argentina"))
   }
 
+  cargarFlags(){
+    this.flagService.getFlags().forEach(element=>{
+      this.prueba[element.country]=element.flag
+    })
+  }
+
   ngOnInit(): void {
     this.grupos = GRUPOS
+    this.cargarFlags()
+    console.log(this.prueba)
     
   }
 
