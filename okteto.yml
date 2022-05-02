@@ -1,10 +1,9 @@
 name: mundial
 
-# The build section defines how to build the images of your development environment
-# More info: https://www.okteto.com/docs/reference/manifest/#build
-# build:
-#   my-service:
-#     context: .
+
+build:
+   my-service:
+     context: .
 
 
 # The deploy section defines how to deploy your development environment
@@ -12,23 +11,21 @@ name: mundial
 deploy:
   commands:
     - name: Deploy
-      command: echo 'Replace this line with the proper 'helm' or 'kubectl' commands to deploy your development environment'
+      command: helm upgrade --install app chart --set image=${OKTETO_BUILD_API_IMAGE}
 
 # The dependencies section defines other git repositories to be deployed as part of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#dependencies
-# dependencies:
-#   - https://github.com/okteto/sample
-# The dev section defines how to activate a development container
-# More info: https://www.okteto.com/docs/reference/manifest/#dev
-# dev:
-#   sample:
-#     image: okteto/dev:latest
-#     command: bash
-#     workdir: /usr/src/app
-#     sync:
-#       - .:/usr/src/app
-#     environment:
-#       - name=$USER
-#     forward:
-#       - 8080:80
+  dependencies:
+    - https://github.com/rubengarcia0510/mundial
+  dev:
+   sample:
+     image: okteto/dev:latest
+     command: bash
+     workdir: /usr/src/app
+     sync:
+       - .:/usr/src/app
+     environment:
+       - name=$USER
+     forward:
+       - 8080:80
 
