@@ -54,5 +54,9 @@ export class FlagsService {
     
   }
 
+  getFlags():Bandera[]{
+    return flag;
+  }
+
   
 }
