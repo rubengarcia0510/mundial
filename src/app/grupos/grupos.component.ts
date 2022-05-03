@@ -18,7 +18,7 @@ var EQUIPOS_GRUPO_B: Equipo[] = [
 
 var EQUIPOS_GRUPO_C: Equipo[] = [
   { name: 'Argentina', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'México', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
+  { name: 'Mexico', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Polonia', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Arabia Saudita', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
@@ -122,7 +122,7 @@ export class GruposComponent implements OnInit {
     { fecha: 3, equipo1: 2, equipo2: 3 },
   ]
 
-  prueba:any=[]
+  banderas:any=[]
   constructor(public flagService:FlagsService) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
@@ -139,14 +139,13 @@ export class GruposComponent implements OnInit {
 
   cargarFlags(){
     this.flagService.getFlags().forEach(element=>{
-      this.prueba[element.country]=element.flag
+      this.banderas[element.country]=element.flag
     })
   }
 
   ngOnInit(): void {
     this.grupos = GRUPOS
     this.cargarFlags()
-    console.log(this.prueba)
     
   }
 
