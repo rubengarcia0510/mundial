@@ -1,22 +1,12 @@
-name: mundial
-
-build:
-  api:
-    context: api
-  frontend:
-    context: frontend
-deploy:
-  - helm upgrade --install movies chart --set api.image=${OKTETO_BUILD_API_IMAGE} --set frontend.image=${OKTETO_BUILD_FRONTEND_IMAGE}
-dev:
-  api:
-    command: ["bash"]
-    forward:
-      - 8080:8080
-      - 9229:9229
-    sync:
-      - api:/usr/src/app
-  frontend:
-    command: npm start
-    sync:
-      - frontend:/usr/src/app
-
+name: web
+image: node:16
+command: bash
+environment:
+- HOST=0.0.0.0
+- PORT=8080
+workdir: /usr/src/app
+sync:
+- .:/usr/src/app
+forward:
+- 9229:9229
+- 8080:8080
