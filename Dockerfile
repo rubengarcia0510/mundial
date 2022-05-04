@@ -11,4 +11,4 @@ RUN --mount=type=cache,target=./node_modules/.cache/webpack npm run build
 FROM bitnami/nginx
 #COPY --from=dev /usr/src/app/build /app
 COPY --from=dev /usr/src/app/dist/mundial /app
-EXPOSE 8080
+EXPOSE 4200
