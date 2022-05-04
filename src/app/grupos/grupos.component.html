@@ -146,7 +146,7 @@
           <tr>
             <td height="25" class="game"><span class="fi fi-{{banderas[partidosOctavos[0].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosOctavos[0].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_italia_uruguay.php">2</a></td>
+            <td class="a-center gameresult"> <input type="number" value="0" id="{{partidosOctavos[0].partido.equipo1}}-octavos"></td>
             <td></td>
             <td rowspan="4"></td>
             <td colspan="2" rowspan="5"></td>
@@ -163,7 +163,7 @@
             <td height="25" class="game"> 
               <span class="fi fi-{{banderas[partidosOctavos[0].partido.equipo2.toLowerCase()]}}"></span>
                  {{partidosOctavos[0].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_italia_uruguay.php">0</a></td>
+            <td class="a-center gameresult"> <input type="number" value="0" id="{{partidosOctavos[0].partido.equipo2}}-octavos"></td>
           </tr>
           <tr>
             <td rowspan="4"></td>
@@ -172,7 +172,8 @@
           <tr>
             <td height="25" colspan="2" class="game"><span class="fi fi-{{banderas[partidosCuartos[1].partido.equipo1.toLowerCase()]}}"></span>
                 {{partidosCuartos[1].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_italia_irlanda.php">1</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[1].partido.equipo1}}-cuartos"></td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -188,7 +189,8 @@
             <td height="25" colspan="2" class="game"> <span class="fi fi-{{banderas[partidosCuartos[1].partido.equipo2.toLowerCase()]}}">
 
             </span> {{partidosCuartos[1].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_italia_irlanda.php">0</a></td>
+            <td class="a-center gameresult">
+               <input type="number" value="0" id="{{partidosCuartos[1].partido.equipo2}}-cuartos"></td>
             <td></td>
             <td colspan="3"></td>
             <td></td>
@@ -239,7 +241,8 @@
             <td height="25" class="game"> <span class="fi fi-{{banderas[partidosOctavos[2].partido.equipo1.toLowerCase()]}}">
 
             </span>{{partidosOctavos[2].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_irlanda_rumania.php">0(5)</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[2].partido.equipo1}}-octavos"></td>
             <td></td>
             <td></td>
             <td colspan="3"></td>
@@ -256,7 +259,8 @@
           <tr>
             <td height="25" class="game"> <span class="fi fi-{{banderas[partidosOctavos[2].partido.equipo2.toLowerCase()]}}"></span>
                 {{partidosOctavos[2].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_irlanda_rumania.php">0(4)</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[2].partido.equipo2}}-octavos"></td>
             <td></td>
             <td></td>
             <td></td>
@@ -267,7 +271,8 @@
             <td colspan="3" rowspan="3"></td>
             <td height="25" colspan="3" class="game"> <span class="fi fi-{{banderas[partidosSemi[0].partido.equipo2.toLowerCase()]}}"></span>
                 {{partidosSemi[0].partido.equipo2}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_italia_argentina.php">1(3)</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosSemi[0].partido.equipo2}}-semi"></td>
             <td colspan="3"></td>
             <td></td>
           </tr>
@@ -283,14 +288,15 @@
           <tr>
             <td height="25" colspan="3" class="game"> <span class="fi fi-{{banderas[partidosSemi[0].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosSemi[0].partido.equipo1}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_italia_argentina.php">1(4)</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosSemi[0].partido.equipo1}}-semi"></td>
             <td></td>
           </tr>
           <tr>
             <td height="25" class="game"><span class="fi fi-{{banderas[partidosOctavos[4].partido.equipo1.toLowerCase()]}}"></span>
                 
                 {{partidosOctavos[4].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_brasil_argentina.php">0</a></td>
+            <td class="a-center gameresult"> <input type="number" value="0" id="{{partidosOctavos[4].partido.equipo1}}-octavos"></td>
             <td></td>
             <td></td>
             <td rowspan="6" background="../../assets/bracket_lineup.gif"
@@ -310,7 +316,8 @@
           <tr>
             <td height="25" class="game"> <span class="fi fi-{{banderas[partidosOctavos[4].partido.equipo2.toLowerCase()]}}"></span>
                {{partidosOctavos[4].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_brasil_argentina.php">1</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[4].partido.equipo2}}-octavos"></td>
             <td></td>
             <td></td>
           </tr>
@@ -324,7 +331,8 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[0].partido.equipo1.toLowerCase()]}}"></span> 
               {{partidosCuartos[0].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_argentina_yugoslavia.php">0(3)</a> </td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[0].partido.equipo1}}-cuartos"> </td>
             <td></td>
           </tr>
           <tr>
@@ -337,7 +345,8 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[0].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosCuartos[0].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_argentina_yugoslavia.php">0(2)</a> </td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[0].partido.equipo2}}-cuartos"> </td>
             <td></td>
             <td></td>
           </tr>
@@ -353,7 +362,8 @@
               <span class="fi fi-{{banderas[partidosOctavos[6].partido.equipo1.toLowerCase()]}}"></span>
 
                 {{partidosOctavos[6].partido.equipo1}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_espana_yugoslavia.php">1</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosOctavos[6].partido.equipo1}}-octavos"></td>
             <td height="25" colspan="5" class="a-center game"><b>Final</b></td>
           </tr>
           <tr>
@@ -365,11 +375,13 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[6].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[6].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_espana_yugoslavia.php">2</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[6].partido.equipo2}}-octavos"></td>
             <td></td>
             <td colspan="4" class="game"> <span class="fi fi-{{banderas[partidosFinal[0].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosFinal[0].partido.equipo1}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_argentina_alemania_occidental.php">0</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosFinal[0].partido.equipo1}}-final"></td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -386,7 +398,8 @@
             <td height="25" colspan="4" class="game">
               <span class="fi fi-{{banderas[partidosFinal[0].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosFinal[0].partido.equipo2}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_argentina_alemania_occidental.php">1</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosFinal[0].partido.equipo2}}-final"></td>
           </tr>
           <tr>
             <td height="15"></td>
@@ -413,14 +426,15 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[5].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosOctavos[5].partido.equipo1}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_camerun_colombia.php">2</a> </td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosOctavos[5].partido.equipo1}}-octavos"> </td>
             <td></td>
             <td colspan="2" rowspan="4"></td>
             <td colspan="3" class="game"> 
               <span class="fi fi-it"></span>
               Italia</td>
             <td class="a-center gameresult">
-              <a href="../partidos/1990_italia_inglaterra.php">2</a>
+              <input type="number" value="0" id="Italia-tercer">
             </td>
           </tr>
           <tr>
@@ -437,12 +451,13 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[5].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[5].partido.equipo2}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_camerun_colombia.php">1</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosOctavos[5].partido.equipo2}}-octavos"></td>
             <td colspan="3" class="game"> 
               <span class="fi fi-gb"></span>
                Inglaterra</td>
             <td class="a-center gameresult">
-              <a href="../partidos/1990_italia_inglaterra.php">1</a>
+              <input type="number" value="0" id="Inglaterra-tercer">
             </td>
           </tr>
           <tr>
@@ -458,7 +473,8 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[2].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosCuartos[2].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_camerun_inglaterra.php">2</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[2].partido.equipo1}}-cuartos"></td>
             <td></td>
           </tr>
           <tr>
@@ -471,7 +487,8 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[2].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosCuartos[2].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_camerun_inglaterra.php">3</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[2].partido.equipo2}}-cuartos"></td>
           </tr>
           <tr>
             <td height="8"></td>
@@ -483,7 +500,8 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[7].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosOctavos[7].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_inglaterra_belgica.php">1</a></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[7].partido.equipo1}}-octavos"></td>
             <td></td>
           </tr>
           <tr>
@@ -495,7 +513,8 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[7].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[7].partido.equipo2}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_inglaterra_belgica.php">0</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosOctavos[7].partido.equipo2}}-octavos"></td>
             <td></td>
             <td></td>
           </tr>
@@ -531,7 +550,8 @@
             <td height="25" colspan="3" class="game"> 
               <span class="fi fi-{{banderas[partidosSemi[1].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosSemi[1].partido.equipo1}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_inglaterra_alemania_occidental.php">1(3)</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosSemi[1].partido.equipo1}}-semi"></td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -542,14 +562,16 @@
             <td height="25" colspan="3" class="game"> 
               <span class="fi fi-{{banderas[partidosSemi[1].partido.equipo2.toLowerCase()]}}"></span>
                {{partidosSemi[1].partido.equipo2}}</td>
-            <td class="a-center gameresult"><a href="../partidos/1990_inglaterra_alemania_occidental.php">1(4)</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosSemi[1].partido.equipo2}}-semi"></td>
             <td colspan="3"></td>
           </tr>
           <tr>
             <td height="25" class="game"> 
               <span class="fi fi-{{banderas[partidosOctavos[1].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosOctavos[1].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_holanda.php">2</a> </td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[1].partido.equipo1}}-octavos"> </td>
             <td></td>
             <td></td>
             <td colspan="2" rowspan="10" background="../../assets/bracket_lineup.gif"
@@ -566,7 +588,8 @@
             <td height="25" class="game"> 
               <span class="fi fi-{{banderas[partidosOctavos[1].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[1].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_holanda.php">1</a> </td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[1].partido.equipo2}}-octavos"> </td>
             <td></td>
           </tr>
           <tr class="pad-0">
@@ -597,7 +620,8 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[3].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosCuartos[3].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_checoslovaquia.php">1</a>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[3].partido.equipo1}}-cuartos">
             </td>
           </tr>
           <tr>
@@ -609,7 +633,8 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[3].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosCuartos[3].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <a href="../partidos/1990_alemania_occidental_checoslovaquia.php">0</a>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosCuartos[3].partido.equipo2}}-cuartos">
             </td>
             <td colspan="2"></td>
           </tr>
@@ -624,7 +649,8 @@
               <span class="fi fi-{{banderas[partidosOctavos[3].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosOctavos[3].partido.equipo1}}
             </td>
-            <td class="a-center gameresult"><a href="../partidos/1990_checoslovaquia_costa_rica.php">4</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosOctavos[3].partido.equipo1}}-octavos"></td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -635,7 +661,8 @@
               <span class="fi fi-{{banderas[partidosOctavos[3].partido.equipo2.toLowerCase()]}}"></span>
                {{partidosOctavos[3].partido.equipo2}}
             </td>
-            <td class="a-center gameresult"><a href="../partidos/1990_checoslovaquia_costa_rica.php">1</a></td>
+            <td class="a-center gameresult">
+              <input type="number" value="0" id="{{partidosOctavos[3].partido.equipo2}}-octavos"></td>
             <td></td>
           </tr>
         </tbody>
