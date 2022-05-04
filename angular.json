@@ -70,7 +70,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "port": 8080,
-            "host": "0.0.0.0"
+            "host": "0.0.0.0",
+            "publicHost": "https://web-rubengarcia0510.cloud.okteto.net/"
           },
           "configurations": {
             "production": {
