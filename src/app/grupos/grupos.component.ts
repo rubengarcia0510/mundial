@@ -109,8 +109,10 @@ export class GruposComponent implements OnInit {
   partidosCuartos: any = []
   partidosSemi: any = []
   partidosFinal: any = []
+  partidosTercer: any = []
   groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
   ganador:string
+  ganadorTercerPuesto:string
   flagEquipo: Bandera[]
 
   logicaFaseGrupos = [
@@ -131,6 +133,7 @@ export class GruposComponent implements OnInit {
     this.partidosFinal = this.final()
     this.partidosFaseGrupos = this.partidosGrupoA()
     this.ganador=""
+    this.ganadorTercerPuesto=""
     this.flagEquipo=flagService.getFlags()
     
     
@@ -369,7 +372,28 @@ export class GruposComponent implements OnInit {
     })
     this.ganador=nombreArray[index].partido.ganador
 
+  }
 
+  updateGanadorTercer(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase: string) {
+    console.table(nombreArray)
+
+    let golesEquipo1Input: HTMLInputElement | null
+    golesEquipo1Input = (<HTMLInputElement>document.getElementById(equipo1 + "-" + fase))
+
+    let golesEquipo2Input: HTMLInputElement | null
+    golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
+    console.log(golesEquipo1Input)
+    console.log(golesEquipo2Input)
+    if (golesEquipo1Input.value > golesEquipo2Input.value) {
+      nombreArray[index].partido.ganador = equipo1
+    } else {
+      nombreArray[index].partido.ganador = equipo2
+    }
+
+    this.partidosTercer.forEach((array: any) => {
+      console.table(array)
+    })
+    this.ganadorTercerPuesto=nombreArray[index].partido.ganador
 
   }
 
