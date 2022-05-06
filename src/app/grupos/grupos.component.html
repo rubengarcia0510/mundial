@@ -146,7 +146,11 @@
           <tr>
             <td height="25" class="game"><span class="fi fi-{{banderas[partidosOctavos[0].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosOctavos[0].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <input type="number" value="0" id="{{partidosOctavos[0].partido.equipo1}}-octavos"></td>
+            <td class="a-center gameresult"> 
+              <input type="number" value="0" id="{{partidosOctavos[0].partido.equipo1}}-octavos" style="vertical-align: super;">
+              <span class="material-icons">check</span>
+            </td>
+              
             <td></td>
             <td rowspan="4"></td>
             <td colspan="2" rowspan="5"></td>
@@ -163,7 +167,10 @@
             <td height="25" class="game"> 
               <span class="fi fi-{{banderas[partidosOctavos[0].partido.equipo2.toLowerCase()]}}"></span>
                  {{partidosOctavos[0].partido.equipo2}}</td>
-            <td class="a-center gameresult"> <input type="number" value="0" id="{{partidosOctavos[0].partido.equipo2}}-octavos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosOctavos[0].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[0].partido.equipo1,partidosOctavos[0].partido.equipo2,partidosOctavos,0,'octavos')">
+            </td>
           </tr>
           <tr>
             <td rowspan="4"></td>
@@ -172,8 +179,10 @@
           <tr>
             <td height="25" colspan="2" class="game"><span class="fi fi-{{banderas[partidosCuartos[1].partido.equipo1.toLowerCase()]}}"></span>
                 {{partidosCuartos[1].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosCuartos[1].partido.equipo1}}-cuartos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosCuartos[1].partido.equipo1}}-cuartos" style="vertical-align: super;">
+              <span class="material-icons">check</span>
+            </td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -190,7 +199,10 @@
 
             </span> {{partidosCuartos[1].partido.equipo2}}</td>
             <td class="a-center gameresult">
-               <input type="number" value="0" id="{{partidosCuartos[1].partido.equipo2}}-cuartos"></td>
+               <input type="number" value="0" id="{{partidosCuartos[1].partido.equipo2}}-cuartos">
+               <input type="checkbox" (click)="updateGanadorCuartos($event,partidosCuartos[1].partido.equipo1,partidosCuartos[1].partido.equipo2,partidosCuartos,1,'cuartos')">
+              </td>
+               
             <td></td>
             <td colspan="3"></td>
             <td></td>
@@ -238,11 +250,14 @@
             <td></td>
           </tr>
           <tr>
-            <td height="25" class="game"> <span class="fi fi-{{banderas[partidosOctavos[2].partido.equipo1.toLowerCase()]}}">
+            <td height="25" class="game"> 
+              <span class="fi fi-{{banderas[partidosOctavos[2].partido.equipo1.toLowerCase()]}}">
 
             </span>{{partidosOctavos[2].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[2].partido.equipo1}}-octavos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosOctavos[2].partido.equipo1}}-octavos">
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
             <td></td>
             <td colspan="3"></td>
@@ -260,7 +275,9 @@
             <td height="25" class="game"> <span class="fi fi-{{banderas[partidosOctavos[2].partido.equipo2.toLowerCase()]}}"></span>
                 {{partidosOctavos[2].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[2].partido.equipo2}}-octavos"></td>
+              <input type="number" value="0" id="{{partidosOctavos[2].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[2].partido.equipo1,partidosOctavos[2].partido.equipo2,partidosOctavos,2,'octavos')">
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -271,8 +288,10 @@
             <td colspan="3" rowspan="3"></td>
             <td height="25" colspan="3" class="game"> <span class="fi fi-{{banderas[partidosSemi[0].partido.equipo2.toLowerCase()]}}"></span>
                 {{partidosSemi[0].partido.equipo2}}</td>
-            <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosSemi[0].partido.equipo2}}-semi"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px">
+              <input type="number" value="0" id="{{partidosSemi[0].partido.equipo2}}-semi">
+              <span class="material-icons">check</span>
+            </td>
             <td colspan="3"></td>
             <td></td>
           </tr>
@@ -289,14 +308,20 @@
             <td height="25" colspan="3" class="game"> <span class="fi fi-{{banderas[partidosSemi[0].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosSemi[0].partido.equipo1}}</td>
             <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosSemi[0].partido.equipo1}}-semi"></td>
+              <input type="number" value="0" id="{{partidosSemi[0].partido.equipo1}}-semi">
+              <input type="checkbox" (click)="updateGanadorSemi($event,partidosSemi[0].partido.equipo1,partidosSemi[0].partido.equipo2,partidosSemi,0,'semi')">
+            </td>
             <td></td>
           </tr>
           <tr>
-            <td height="25" class="game"><span class="fi fi-{{banderas[partidosOctavos[4].partido.equipo1.toLowerCase()]}}"></span>
+            <td height="25" class="game">
+              <span class="fi fi-{{banderas[partidosOctavos[4].partido.equipo1.toLowerCase()]}}"></span>
                 
                 {{partidosOctavos[4].partido.equipo1}}</td>
-            <td class="a-center gameresult"> <input type="number" value="0" id="{{partidosOctavos[4].partido.equipo1}}-octavos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosOctavos[4].partido.equipo1}}-octavos">
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
             <td></td>
             <td rowspan="6" background="../../assets/bracket_lineup.gif"
@@ -317,7 +342,9 @@
             <td height="25" class="game"> <span class="fi fi-{{banderas[partidosOctavos[4].partido.equipo2.toLowerCase()]}}"></span>
                {{partidosOctavos[4].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[4].partido.equipo2}}-octavos"></td>
+              <input type="number" value="0" id="{{partidosOctavos[4].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[4].partido.equipo1,partidosOctavos[4].partido.equipo2,partidosOctavos,4,'octavos')">
+            </td>
             <td></td>
             <td></td>
           </tr>
@@ -331,8 +358,10 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[0].partido.equipo1.toLowerCase()]}}"></span> 
               {{partidosCuartos[0].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosCuartos[0].partido.equipo1}}-cuartos"> </td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosCuartos[0].partido.equipo1}}-cuartos">
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
           </tr>
           <tr>
@@ -346,7 +375,9 @@
               <span class="fi fi-{{banderas[partidosCuartos[0].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosCuartos[0].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosCuartos[0].partido.equipo2}}-cuartos"> </td>
+              <input type="number" value="0" id="{{partidosCuartos[0].partido.equipo2}}-cuartos">
+              <input type="checkbox" (click)="updateGanadorCuartos($event,partidosCuartos[0].partido.equipo1,partidosCuartos[0].partido.equipo2,partidosOctavos,0,'cuartos')">
+            </td>
             <td></td>
             <td></td>
           </tr>
@@ -360,10 +391,11 @@
           <tr>
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[6].partido.equipo1.toLowerCase()]}}"></span>
-
                 {{partidosOctavos[6].partido.equipo1}}</td>
-            <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosOctavos[6].partido.equipo1}}-octavos"></td>
+            <td class="a-center gameresult"  style="display:flex;width:60px;padding:3px">
+              <input type="number" value="0" id="{{partidosOctavos[6].partido.equipo1}}-octavos">
+              <span class="material-icons">check</span>
+            </td>
             <td height="25" colspan="5" class="a-center game"><b>Final</b></td>
           </tr>
           <tr>
@@ -376,12 +408,17 @@
               <span class="fi fi-{{banderas[partidosOctavos[6].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[6].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[6].partido.equipo2}}-octavos"></td>
+              <input type="number" value="0" id="{{partidosOctavos[6].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[6].partido.equipo1,partidosOctavos[6].partido.equipo2,partidosOctavos,0,'octavos')">
+            </td>
             <td></td>
-            <td colspan="4" class="game"> <span class="fi fi-{{banderas[partidosFinal[0].partido.equipo1.toLowerCase()]}}"></span>
+            <td colspan="4" class="game"> 
+              <span class="fi fi-{{banderas[partidosFinal[0].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosFinal[0].partido.equipo1}}</td>
-            <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosFinal[0].partido.equipo1}}-final"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px">
+              <input type="number" value="0" id="{{partidosFinal[0].partido.equipo1}}-final">
+              <span class="material-icons">check</span>
+            </td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -399,7 +436,9 @@
               <span class="fi fi-{{banderas[partidosFinal[0].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosFinal[0].partido.equipo2}}</td>
             <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosFinal[0].partido.equipo2}}-final"></td>
+              <input type="number" value="0" id="{{partidosFinal[0].partido.equipo2}}-final">
+              <input type="checkbox" (click)="updateGanadorFinal($event,partidosFinal[0].partido.equipo1,partidosFinal[0].partido.equipo2,partidosFinal,0,'final')">
+            </td>
           </tr>
           <tr>
             <td height="15"></td>
@@ -426,15 +465,18 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[5].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosOctavos[5].partido.equipo1}}</td>
-            <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosOctavos[5].partido.equipo1}}-octavos"> </td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px">
+              <input type="number" value="0" id="{{partidosOctavos[5].partido.equipo1}}-octavos"> 
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
             <td colspan="2" rowspan="4"></td>
             <td colspan="3" class="game"> 
               <span class="fi fi-it"></span>
               Italia</td>
-            <td class="a-center gameresult">
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px">
               <input type="number" value="0" id="Italia-tercer">
+              <span class="material-icons">check</span>
             </td>
           </tr>
           <tr>
@@ -452,12 +494,15 @@
               <span class="fi fi-{{banderas[partidosOctavos[5].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[5].partido.equipo2}}</td>
             <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosOctavos[5].partido.equipo2}}-octavos"></td>
+              <input type="number" value="0" id="{{partidosOctavos[5].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[5].partido.equipo1,partidosOctavos[5].partido.equipo2,partidosOctavos,5,'octavos')">
+            </td>
             <td colspan="3" class="game"> 
               <span class="fi fi-gb"></span>
                Inglaterra</td>
             <td class="a-center gameresult">
               <input type="number" value="0" id="Inglaterra-tercer">
+              <input type="checkbox" (click)="updateGanadorTercer($event,partidosTercer[0].partido.equipo1,partidosTercer[0].partido.equipo2,partidosTercer,0,'tercer')">
             </td>
           </tr>
           <tr>
@@ -473,8 +518,10 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[2].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosCuartos[2].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosCuartos[2].partido.equipo1}}-cuartos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosCuartos[2].partido.equipo1}}-cuartos">
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
           </tr>
           <tr>
@@ -488,8 +535,11 @@
               <span class="fi fi-{{banderas[partidosCuartos[2].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosCuartos[2].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosCuartos[2].partido.equipo2}}-cuartos"></td>
-          </tr>
+              <input type="number" value="0" id="{{partidosCuartos[2].partido.equipo2}}-cuartos">
+              <input type="checkbox" (click)="updateGanadorCuartos($event,partidosCuartos[2].partido.equipo1,partidosCuartos[2].partido.equipo2,partidosCuartos,2,'cuartos')">
+            </td>
+          
+            </tr>
           <tr>
             <td height="8"></td>
             <td rowspan="3" background="../../assets/bracket_lineup.gif"
@@ -500,8 +550,10 @@
             <td height="25" class="game">
               <span class="fi fi-{{banderas[partidosOctavos[7].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosOctavos[7].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[7].partido.equipo1}}-octavos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosOctavos[7].partido.equipo1}}-octavos">
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
           </tr>
           <tr>
@@ -514,7 +566,9 @@
               <span class="fi fi-{{banderas[partidosOctavos[7].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[7].partido.equipo2}}</td>
             <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosOctavos[7].partido.equipo2}}-octavos"></td>
+              <input type="number" value="0" id="{{partidosOctavos[7].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[7].partido.equipo1,partidosOctavos[7].partido.equipo2,partidosOctavos,7,'octavos')">           
+            </td>
             <td></td>
             <td></td>
           </tr>
@@ -550,8 +604,10 @@
             <td height="25" colspan="3" class="game"> 
               <span class="fi fi-{{banderas[partidosSemi[1].partido.equipo1.toLowerCase()]}}"></span>
               {{partidosSemi[1].partido.equipo1}}</td>
-            <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosSemi[1].partido.equipo1}}-semi"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px">
+              <input type="number" value="0" id="{{partidosSemi[1].partido.equipo1}}-semi">
+              <span class="material-icons">check</span>
+            </td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -563,15 +619,19 @@
               <span class="fi fi-{{banderas[partidosSemi[1].partido.equipo2.toLowerCase()]}}"></span>
                {{partidosSemi[1].partido.equipo2}}</td>
             <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosSemi[1].partido.equipo2}}-semi"></td>
+              <input type="number" value="0" id="{{partidosSemi[1].partido.equipo2}}-semi">
+              <input type="checkbox" (click)="updateGanadorSemi($event,partidosSemi[1].partido.equipo1,partidosSemi[1].partido.equipo2,partidosSemi,1,'semi')">                 
+            </td>
             <td colspan="3"></td>
           </tr>
           <tr>
             <td height="25" class="game"> 
               <span class="fi fi-{{banderas[partidosOctavos[1].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosOctavos[1].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[1].partido.equipo1}}-octavos"> </td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
+              <input type="number" value="0" id="{{partidosOctavos[1].partido.equipo1}}-octavos"> 
+              <span class="material-icons">check</span>
+            </td>
             <td></td>
             <td></td>
             <td colspan="2" rowspan="10" background="../../assets/bracket_lineup.gif"
@@ -589,7 +649,9 @@
               <span class="fi fi-{{banderas[partidosOctavos[1].partido.equipo2.toLowerCase()]}}"></span>
               {{partidosOctavos[1].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
-              <input type="number" value="0" id="{{partidosOctavos[1].partido.equipo2}}-octavos"> </td>
+              <input type="number" value="0" id="{{partidosOctavos[1].partido.equipo2}}-octavos"> 
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[1].partido.equipo1,partidosOctavos[1].partido.equipo2,partidosOctavos,1,'octavos')">
+            </td>
             <td></td>
           </tr>
           <tr class="pad-0">
@@ -620,8 +682,9 @@
             <td height="25" colspan="2" class="game"> 
               <span class="fi fi-{{banderas[partidosCuartos[3].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosCuartos[3].partido.equipo1}}</td>
-            <td class="a-center gameresult"> 
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px"> 
               <input type="number" value="0" id="{{partidosCuartos[3].partido.equipo1}}-cuartos">
+              <span class="material-icons">check</span>
             </td>
           </tr>
           <tr>
@@ -635,6 +698,7 @@
               {{partidosCuartos[3].partido.equipo2}}</td>
             <td class="a-center gameresult"> 
               <input type="number" value="0" id="{{partidosCuartos[3].partido.equipo2}}-cuartos">
+              <input type="checkbox" (click)="updateGanadorCuartos($event,partidosCuartos[3].partido.equipo1,partidosCuartos[3].partido.equipo2,partidosCuartos,3,'cuartos')">
             </td>
             <td colspan="2"></td>
           </tr>
@@ -649,8 +713,10 @@
               <span class="fi fi-{{banderas[partidosOctavos[3].partido.equipo1.toLowerCase()]}}"></span>
                {{partidosOctavos[3].partido.equipo1}}
             </td>
-            <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosOctavos[3].partido.equipo1}}-octavos"></td>
+            <td class="a-center gameresult" style="display:flex;width:60px;padding:3px">
+              <input type="number" value="0" id="{{partidosOctavos[3].partido.equipo1}}-octavos">
+              <span class="material-icons">check</span>
+            </td>
           </tr>
           <tr>
             <td height="1"></td>
@@ -662,7 +728,9 @@
                {{partidosOctavos[3].partido.equipo2}}
             </td>
             <td class="a-center gameresult">
-              <input type="number" value="0" id="{{partidosOctavos[3].partido.equipo2}}-octavos"></td>
+              <input type="number" value="0" id="{{partidosOctavos[3].partido.equipo2}}-octavos">
+              <input type="checkbox" (click)="updateGanadorOctavos($event,partidosOctavos[3].partido.equipo1,partidosOctavos[3].partido.equipo2,partidosOctavos,3,'octavos')">
+            </td>
             <td></td>
           </tr>
         </tbody>
