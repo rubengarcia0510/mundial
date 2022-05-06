@@ -12,12 +12,14 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GrupoComponent } from './grupo/grupo.component';
+import { ModalAlertComponent } from './modal-alert/modal-alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GruposComponent,
-    GrupoComponent
+    GrupoComponent,
+    ModalAlertComponent
   ],
   imports: [
     BrowserModule,
