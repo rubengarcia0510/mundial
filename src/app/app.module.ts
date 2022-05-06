@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GrupoComponent } from './grupo/grupo.component';
 import { ModalAlertComponent } from './modal-alert/modal-alert.component';
@@ -30,6 +31,7 @@ import { ModalAlertComponent } from './modal-alert/modal-alert.component';
     MatMenuModule,
     MatIconModule,
     MatTabsModule,
+    MatSnackBarModule,
     BrowserAnimationsModule
    
   ],

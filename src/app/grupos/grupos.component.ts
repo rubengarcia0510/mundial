@@ -1,6 +1,8 @@
 import { Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FlagsService } from '../flags.service';
 import { Grupo, Equipo, Partido, Bandera } from '../Interfaces';
+import { ModalAlertComponent } from '../modal-alert/modal-alert.component';
 
 var EQUIPOS_GRUPO_A: Equipo[] = [
   { name: 'Qatar', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
@@ -125,7 +127,7 @@ export class GruposComponent implements OnInit {
   ]
 
   banderas: any = []
-  constructor(public flagService: FlagsService) {
+  constructor(public flagService: FlagsService, public snackBar: MatSnackBar) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
@@ -285,7 +287,9 @@ export class GruposComponent implements OnInit {
 
 
     if (golesEquipo1Input.value == golesEquipo2Input.value) {
-      alert("El partido no puede termnar empatado")
+      this.snackBar.openFromComponent(ModalAlertComponent, {
+        duration: 1000,
+      });
     } else {
       if (golesEquipo1Input.value > golesEquipo2Input.value) {
         nombreArray[index].partido.ganador = equipo1
@@ -317,18 +321,27 @@ export class GruposComponent implements OnInit {
 
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
-    console.log(golesEquipo1Input)
-    console.log(golesEquipo2Input)
-    if (golesEquipo1Input.value > golesEquipo2Input.value) {
-      nombreArray[index].partido.ganador = equipo1
+
+    if (golesEquipo1Input.value == golesEquipo2Input.value) {
+      this.snackBar.openFromComponent(ModalAlertComponent, {
+        duration: 1000,
+      });
     } else {
-      nombreArray[index].partido.ganador = equipo2
+      if (golesEquipo1Input.value > golesEquipo2Input.value) {
+        nombreArray[index].partido.ganador = equipo1
+      } else {
+        nombreArray[index].partido.ganador = equipo2
+      }
+
+      this.partidosCuartos.forEach((array: any) => {
+        console.table(array)
+      })
+      this.semiFinal()
+
+      golesEquipo2Input.disabled = true
+      golesEquipo1Input.disabled = true
     }
 
-    this.partidosCuartos.forEach((array: any) => {
-      console.table(array)
-    })
-    this.semiFinal()
 
 
 
@@ -342,21 +355,26 @@ export class GruposComponent implements OnInit {
 
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
-    console.log(golesEquipo1Input)
-    console.log(golesEquipo2Input)
-    if (golesEquipo1Input.value > golesEquipo2Input.value) {
-      nombreArray[index].partido.ganador = equipo1
+
+    if (golesEquipo1Input.value == golesEquipo2Input.value) {
+      this.snackBar.openFromComponent(ModalAlertComponent, {
+        duration: 1000,
+      });
     } else {
-      nombreArray[index].partido.ganador = equipo2
+      if (golesEquipo1Input.value > golesEquipo2Input.value) {
+        nombreArray[index].partido.ganador = equipo1
+      } else {
+        nombreArray[index].partido.ganador = equipo2
+      }
+
+      this.partidosSemi.forEach((array: any) => {
+        console.table(array)
+      })
+      this.final()
+      golesEquipo2Input.disabled = true
+      golesEquipo1Input.disabled = true
+
     }
-
-    this.partidosSemi.forEach((array: any) => {
-      console.table(array)
-    })
-    this.final()
-
-
-
   }
 
   updateGanadorFinal(event: any, equipo1: any, equipo2: any, nombreArray: any, index: any, fase: string) {
@@ -367,18 +385,26 @@ export class GruposComponent implements OnInit {
 
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
-    console.log(golesEquipo1Input)
-    console.log(golesEquipo2Input)
-    if (golesEquipo1Input.value > golesEquipo2Input.value) {
-      nombreArray[index].partido.ganador = equipo1
+    
+    if (golesEquipo1Input.value == golesEquipo2Input.value) {
+      this.snackBar.openFromComponent(ModalAlertComponent, {
+        duration: 1000,
+      });
     } else {
-      nombreArray[index].partido.ganador = equipo2
+      if (golesEquipo1Input.value > golesEquipo2Input.value) {
+        nombreArray[index].partido.ganador = equipo1
+      } else {
+        nombreArray[index].partido.ganador = equipo2
+      }
+  
+      this.partidosFinal.forEach((array: any) => {
+        console.table(array)
+      })
+      this.ganador = nombreArray[index].partido.ganador
+      golesEquipo2Input.disabled = true
+      golesEquipo1Input.disabled = true
     }
-
-    this.partidosFinal.forEach((array: any) => {
-      console.table(array)
-    })
-    this.ganador = nombreArray[index].partido.ganador
+    
 
   }
 
@@ -390,18 +416,26 @@ export class GruposComponent implements OnInit {
 
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
-    console.log(golesEquipo1Input)
-    console.log(golesEquipo2Input)
-    if (golesEquipo1Input.value > golesEquipo2Input.value) {
-      nombreArray[index].partido.ganador = equipo1
+    
+    if (golesEquipo1Input.value == golesEquipo2Input.value) {
+      this.snackBar.openFromComponent(ModalAlertComponent, {
+        duration: 1000,
+      });
     } else {
-      nombreArray[index].partido.ganador = equipo2
+      if (golesEquipo1Input.value > golesEquipo2Input.value) {
+        nombreArray[index].partido.ganador = equipo1
+      } else {
+        nombreArray[index].partido.ganador = equipo2
+      }
+  
+      this.partidosTercer.forEach((array: any) => {
+        console.table(array)
+      })
+      this.ganadorTercerPuesto = nombreArray[index].partido.ganador
+      golesEquipo2Input.disabled = true
+      golesEquipo1Input.disabled = true
     }
-
-    this.partidosTercer.forEach((array: any) => {
-      console.table(array)
-    })
-    this.ganadorTercerPuesto = nombreArray[index].partido.ganador
+    
 
   }
 
