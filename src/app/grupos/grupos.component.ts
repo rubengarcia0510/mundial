@@ -111,8 +111,8 @@ export class GruposComponent implements OnInit {
   partidosFinal: any = []
   partidosTercer: any = []
   groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-  ganador:string
-  ganadorTercerPuesto:string
+  ganador: string
+  ganadorTercerPuesto: string
   flagEquipo: Bandera[]
 
   logicaFaseGrupos = [
@@ -124,32 +124,32 @@ export class GruposComponent implements OnInit {
     { fecha: 3, equipo1: 2, equipo2: 3 },
   ]
 
-  banderas:any=[]
-  constructor(public flagService:FlagsService) {
+  banderas: any = []
+  constructor(public flagService: FlagsService) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
     this.partidosSemi = this.semiFinal()
     this.partidosFinal = this.final()
     this.partidosFaseGrupos = this.partidosGrupoA()
-    this.ganador=""
-    this.ganadorTercerPuesto=""
-    this.flagEquipo=flagService.getFlags()
-    
-    
+    this.ganador = ""
+    this.ganadorTercerPuesto = ""
+    this.flagEquipo = flagService.getFlags()
+
+
     console.log(flagService.getFlag("Argentina"))
   }
 
-  cargarFlags(){
-    this.flagService.getFlags().forEach(element=>{
-      this.banderas[element.country]=element.flag
+  cargarFlags() {
+    this.flagService.getFlags().forEach(element => {
+      this.banderas[element.country] = element.flag
     })
   }
 
   ngOnInit(): void {
     this.grupos = GRUPOS
     this.cargarFlags()
-    
+
   }
 
   updateGrupo(event: any, grupo: string, equipo1: string, equipo2: string, fecha: string) {
@@ -282,18 +282,26 @@ export class GruposComponent implements OnInit {
 
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
-    console.log(golesEquipo1Input)
-    console.log(golesEquipo2Input)
-    if (golesEquipo1Input.value > golesEquipo2Input.value) {
-      nombreArray[index].partido.ganador = equipo1
+
+
+    if (golesEquipo1Input.value == golesEquipo2Input.value) {
+      alert("El partido no puede termnar empatado")
     } else {
-      nombreArray[index].partido.ganador = equipo2
+      if (golesEquipo1Input.value > golesEquipo2Input.value) {
+        nombreArray[index].partido.ganador = equipo1
+      } else {
+        nombreArray[index].partido.ganador = equipo2
+      }
+
+      this.partidosOctavos.forEach((array: any) => {
+        console.table(array)
+      })
+      this.cuartosFinal()
+
+      golesEquipo2Input.disabled = true
+      golesEquipo1Input.disabled = true
     }
 
-    this.partidosOctavos.forEach((array: any) => {
-      console.table(array)
-    })
-    this.cuartosFinal()
 
 
 
@@ -370,7 +378,7 @@ export class GruposComponent implements OnInit {
     this.partidosFinal.forEach((array: any) => {
       console.table(array)
     })
-    this.ganador=nombreArray[index].partido.ganador
+    this.ganador = nombreArray[index].partido.ganador
 
   }
 
@@ -393,7 +401,7 @@ export class GruposComponent implements OnInit {
     this.partidosTercer.forEach((array: any) => {
       console.table(array)
     })
-    this.ganadorTercerPuesto=nombreArray[index].partido.ganador
+    this.ganadorTercerPuesto = nombreArray[index].partido.ganador
 
   }
 
