@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FlagsService } from '../flags.service';
 import { Ganador } from '../Interfaces';
 
 
@@ -11,14 +12,24 @@ import { Ganador } from '../Interfaces';
 })
 export class GanadorComponent implements OnInit {
 
+  banderas: any = []
+  
   constructor(public dialogRef: MatDialogRef<GanadorComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Ganador) { }
+    @Inject(MAT_DIALOG_DATA) public data: Ganador,
+    public flagService: FlagsService) { }
 
   ngOnInit(): void {
+    this.cargarFlags()
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  cargarFlags() {
+    this.flagService.getFlags().forEach(element => {
+      this.banderas[element.country] = element.flag
+    })
   }
 
 }
