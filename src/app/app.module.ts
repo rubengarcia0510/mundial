@@ -15,13 +15,15 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GrupoComponent } from './grupo/grupo.component';
 import { ModalAlertComponent } from './modal-alert/modal-alert.component';
+import { GanadorComponent } from './ganador/ganador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GruposComponent,
     GrupoComponent,
-    ModalAlertComponent
+    ModalAlertComponent,
+    GanadorComponent
   ],
   imports: [
     BrowserModule,
