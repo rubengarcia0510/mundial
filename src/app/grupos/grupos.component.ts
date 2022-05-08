@@ -1,6 +1,8 @@
 import { Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FlagsService } from '../flags.service';
+import { GanadorComponent } from '../ganador/ganador.component';
 import { Grupo, Equipo, Partido, Bandera } from '../Interfaces';
 import { ModalAlertComponent } from '../modal-alert/modal-alert.component';
 
@@ -116,6 +118,7 @@ export class GruposComponent implements OnInit {
   ganador: string
   ganadorTercerPuesto: string
   flagEquipo: Bandera[]
+  animal:any
 
   logicaFaseGrupos = [
     { fecha: 1, equipo1: 0, equipo2: 3 },
@@ -127,7 +130,9 @@ export class GruposComponent implements OnInit {
   ]
 
   banderas: any = []
-  constructor(public flagService: FlagsService, public snackBar: MatSnackBar) {
+  constructor(public flagService: FlagsService, 
+              public snackBar: MatSnackBar,
+              public dialog: MatDialog) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
@@ -140,6 +145,18 @@ export class GruposComponent implements OnInit {
 
 
     console.log(flagService.getFlag("Argentina"))
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(GanadorComponent, {
+      width: '250px',
+      data: {name: this.ganador}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
   cargarFlags() {
@@ -403,6 +420,8 @@ export class GruposComponent implements OnInit {
       this.ganador = nombreArray[index].partido.ganador
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
+
+      this.openDialog()
     }
     
 
@@ -620,6 +639,7 @@ export class GruposComponent implements OnInit {
     ];
 
     this.partidosFinal = final
+    console.log("El ganador es :"+this.ganador)      
 
     return final;
 
