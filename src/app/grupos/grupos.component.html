@@ -2,7 +2,9 @@
   <span>World Cup - Qatar 2022</span>
 </mat-toolbar>
 
-<mat-tab-group style="position:absolute;top:60px;">
+<mat-tab-group style="position:absolute;
+                      top:60px;
+                      margin-left: 15%;">
   <mat-tab label="Fase de Grupos - Tablas de Posiciones">
     <mat-card style="padding-left: 5em;">
 
@@ -17,9 +19,12 @@
     </mat-card>
   </mat-tab>
   <mat-tab label="Fase de Grupos - Fixture">
-    <mat-card>
+    
+<mat-card>
       <form>
         <table>
+    
+    
           <ng-container *ngFor="let row of partidosFaseGrupos;let i=index">
             <ng-container *ngIf="(i%6)==0">
               <tr>
@@ -45,9 +50,12 @@
               <td><input type="checkbox" (click)="updateGrupo($event,row.grupo,row.equipo1,row.equipo2,row.fecha)"></td>
             </tr>
           </ng-container>
-        </table>
+          
+</table>
       </form>
     </mat-card>
+          
+        
 
   </mat-tab>
   <mat-tab label="Fase Final">
