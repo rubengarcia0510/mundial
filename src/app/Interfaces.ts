@@ -26,3 +26,7 @@ export interface Equipo {
     country:string;
     flag:string;
   }
+
+  export interface Ganador {
+    name: string;
+  }
