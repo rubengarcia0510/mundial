@@ -22,10 +22,20 @@
         <table>
           <ng-container *ngFor="let row of partidosFaseGrupos;let i=index">
             <ng-container *ngIf="(i%6)==0">
-              <tr>Grupo {{row.grupo}}</tr>
+              <tr>
+                <td colspan="5" style="background-color: #3f51b5; 
+                text-align: center; 
+                border-radius: 0.5em;
+                color: white;
+                margin: 5px;"><h3>Grupo {{row.grupo}}</h3></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
             </ng-container>
             <ng-container *ngIf="(i%2)==0">
-              <tr>Fecha {{row.fecha}}</tr>
+              <tr><td><h4>Fecha {{row.fecha}}</h4></td></tr>
             </ng-container>
             <tr>
               <td>{{row.equipo1}}</td>
