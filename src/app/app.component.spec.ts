@@ -1,8 +1,10 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { GrupoComponent } from './grupo/grupo.component';
@@ -20,7 +22,10 @@ describe('AppComponent', () => {
         MatCardModule,
         MatToolbarModule,
         MatIconModule,
-        MatMenuModule
+        MatMenuModule,
+        MatSnackBarModule,
+        MatDialogModule
+
       ]
     }).compileComponents();
   });
