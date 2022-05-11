@@ -177,6 +177,7 @@ export class GruposComponent implements OnInit {
     this.updatePuntos(grupo, equipo1, equipo2, fecha)
     this.updatePartidos(grupo, equipo1, equipo2, fecha)
     this.sortPuntos(grupo)
+    this.partidosOctavos = this.octavosFinal()
 
   }
 
@@ -204,6 +205,8 @@ export class GruposComponent implements OnInit {
     GRUPOS[indexGrupos].equipos = aux
 
     console.table(GRUPOS[indexGrupos].equipos)
+    alert(GRUPOS[indexGrupos].equipos[0].name)
+    console.table(this.partidosOctavos[0])
   }
 
   updatePartidos(grupo: string, equipo1: string, equipo2: string, fecha: string) {
@@ -320,7 +323,7 @@ export class GruposComponent implements OnInit {
       this.partidosOctavos.forEach((array: any) => {
         console.table(array)
       })
-      this.cuartosFinal()
+      this.partidosCuartos = this.cuartosFinal()
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
@@ -358,7 +361,7 @@ export class GruposComponent implements OnInit {
       this.partidosCuartos.forEach((array: any) => {
         console.table(array)
       })
-      this.semiFinal()
+      this.partidosSemi = this.semiFinal()
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
@@ -394,7 +397,9 @@ export class GruposComponent implements OnInit {
       this.partidosSemi.forEach((array: any) => {
         console.table(array)
       })
-      this.final()
+      
+      this.partidosFinal = this.final()
+
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
       event.target.disabled = true
