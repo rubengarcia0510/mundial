@@ -173,7 +173,7 @@ export class GruposComponent implements OnInit {
 
   updateGrupo(event: any, grupo: string, equipo1: string, equipo2: string, fecha: string) {
 
-    this.updateGoals(grupo, equipo1, equipo2, fecha)
+    this.updateGoals(event,grupo, equipo1, equipo2, fecha)
     this.updatePuntos(grupo, equipo1, equipo2, fecha)
     this.updatePartidos(grupo, equipo1, equipo2, fecha)
     this.sortPuntos(grupo)
@@ -266,7 +266,7 @@ export class GruposComponent implements OnInit {
 
   }
 
-  updateGoals(grupo: string, local: string, visitante: string, fecha: string) {
+  updateGoals(event:any,grupo: string, local: string, visitante: string, fecha: string) {
 
     let golesLocal: HTMLElement | null
     golesLocal = document.getElementById(local + "-gf")
@@ -290,6 +290,9 @@ export class GruposComponent implements OnInit {
     GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesVisitanteInput.value)
     GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesLocalInput.value)
 
+    event.target.disabled = true
+    golesLocalInput.disabled = true
+    golesVisitanteInput.disabled = true
 
   }
 
@@ -321,6 +324,8 @@ export class GruposComponent implements OnInit {
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
+      event.target.disabled = true
+
     }
 
 
@@ -357,6 +362,8 @@ export class GruposComponent implements OnInit {
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
+      event.target.disabled = true
+
     }
 
 
@@ -390,6 +397,7 @@ export class GruposComponent implements OnInit {
       this.final()
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
+      event.target.disabled = true
 
     }
   }
@@ -418,8 +426,10 @@ export class GruposComponent implements OnInit {
         console.table(array)
       })
       this.ganador = nombreArray[index].partido.ganador
+
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
+      event.target.disabled = true
 
       this.openDialog()
     }
@@ -451,8 +461,11 @@ export class GruposComponent implements OnInit {
         console.table(array)
       })
       this.ganadorTercerPuesto = nombreArray[index].partido.ganador
+      
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
+      event.target.disabled = true
+
     }
     
 
