@@ -177,6 +177,7 @@ export class GruposComponent implements OnInit {
     this.updatePuntos(grupo, equipo1, equipo2, fecha)
     this.updatePartidos(grupo, equipo1, equipo2, fecha)
     this.sortPuntos(grupo)
+    this.partidosOctavos = this.octavosFinal()
 
   }
 
@@ -204,6 +205,8 @@ export class GruposComponent implements OnInit {
     GRUPOS[indexGrupos].equipos = aux
 
     console.table(GRUPOS[indexGrupos].equipos)
+    alert(GRUPOS[indexGrupos].equipos[0].name)
+    console.table(this.partidosOctavos[0])
   }
 
   updatePartidos(grupo: string, equipo1: string, equipo2: string, fecha: string) {
@@ -320,7 +323,7 @@ export class GruposComponent implements OnInit {
       this.partidosOctavos.forEach((array: any) => {
         console.table(array)
       })
-      this.cuartosFinal()
+      this.partidosCuartos = this.cuartosFinal()
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
@@ -358,7 +361,7 @@ export class GruposComponent implements OnInit {
       this.partidosCuartos.forEach((array: any) => {
         console.table(array)
       })
-      this.semiFinal()
+      this.partidosSemi = this.semiFinal()
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
@@ -394,7 +397,9 @@ export class GruposComponent implements OnInit {
       this.partidosSemi.forEach((array: any) => {
         console.table(array)
       })
-      this.final()
+      
+      this.partidosFinal = this.final()
+
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
       event.target.disabled = true
@@ -477,7 +482,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[1].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Qatar'
+      ganador: ''
     }
 
     let partido2: Partido = {
@@ -485,7 +490,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[3].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Argentina'
+      ganador: ''
     }
 
     let partido3: Partido = {
@@ -493,7 +498,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[2].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Francia'
+      ganador: ''
     }
 
     let partido4: Partido = {
@@ -501,7 +506,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[0].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Inglaterra'
+      ganador: ''
     }
 
     let partido5: Partido = {
@@ -509,7 +514,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[5].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'España'
+      ganador: ''
     }
 
     let partido6: Partido = {
@@ -517,7 +522,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[7].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Brasil'
+      ganador: ''
     }
 
     let partido7: Partido = {
@@ -525,7 +530,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[4].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Belgica'
+      ganador: ''
     }
 
     let partido8: Partido = {
@@ -533,7 +538,7 @@ export class GruposComponent implements OnInit {
       equipo2: GRUPOS[6].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
-      ganador: 'Portugal'
+      ganador: ''
     }
 
     let octavos = [
@@ -562,7 +567,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: octavos[6].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'España'
+      ganador: ''
     }
 
     let partido2: Partido =
@@ -571,7 +576,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: octavos[2].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'Qatar'
+      ganador: ''
     }
 
     let partido3: Partido =
@@ -580,7 +585,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: octavos[7].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'Brasil'
+      ganador: ''
     }
 
     let partido4: Partido =
@@ -589,7 +594,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: octavos[3].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'Argentina'
+      ganador: ''
     }
 
     let cuartos = [
@@ -612,7 +617,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: cuartos[1].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'España'
+      ganador: ''
     }
 
     let partido2: Partido =
@@ -621,7 +626,7 @@ export class GruposComponent implements OnInit {
       golesEquipo1: 0,
       equipo2: cuartos[3].partido.ganador,
       golesEquipo2: 0,
-      ganador: 'Brasil'
+      ganador: ''
     }
 
     let semi = [
