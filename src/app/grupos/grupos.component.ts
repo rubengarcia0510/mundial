@@ -113,7 +113,7 @@ export class GruposComponent implements OnInit {
   partidosCuartos: any = []
   partidosSemi: any = []
   partidosFinal: any = []
-  partidosTercer: any = []
+  partidosTercer: Partido[] = []
   groups = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
   ganador: string
   ganadorTercerPuesto: string
@@ -142,6 +142,13 @@ export class GruposComponent implements OnInit {
     this.ganador = ""
     this.ganadorTercerPuesto = ""
     this.flagEquipo = flagService.getFlags()
+    this.partidosTercer.push({
+      equipo1:'',
+      golesEquipo1:0,
+      equipo2:'',
+      golesEquipo2:0,
+      ganador:''
+    })
 
 
     console.log(flagService.getFlag("Argentina"))
@@ -383,6 +390,8 @@ export class GruposComponent implements OnInit {
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-" + fase))
 
+    let perdedor=''
+
     if (golesEquipo1Input.value == golesEquipo2Input.value) {
       this.snackBar.openFromComponent(ModalAlertComponent, {
         duration: 1000,
@@ -390,15 +399,21 @@ export class GruposComponent implements OnInit {
     } else {
       if (golesEquipo1Input.value > golesEquipo2Input.value) {
         nombreArray[index].partido.ganador = equipo1
+        perdedor=equipo2
       } else {
         nombreArray[index].partido.ganador = equipo2
+        perdedor=equipo1
       }
-
-      this.partidosSemi.forEach((array: any) => {
-        console.table(array)
-      })
       
       this.partidosFinal = this.final()
+      if(this.partidosTercer[0].equipo1==''){
+        alert(this.partidosTercer[0].equipo1)
+        this.partidosTercer[0].equipo1=perdedor
+      }else{
+        this.partidosTercer[0].equipo2=perdedor
+      }
+
+      console.table(this.partidosTercer)
 
       golesEquipo2Input.disabled = true
       golesEquipo1Input.disabled = true
