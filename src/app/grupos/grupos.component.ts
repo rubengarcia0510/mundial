@@ -17,7 +17,7 @@ var EQUIPOS_GRUPO_B: Equipo[] = [
   { name: 'Inglaterra', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'USA', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Iran', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Escocia, Gales o Ucrania', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Gales', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_C: Equipo[] = [
@@ -31,14 +31,14 @@ var EQUIPOS_GRUPO_D: Equipo[] = [
   { name: 'Francia', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Dinamarca', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Túnez', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Emiratos Árabes Unidos, Australia o Perú', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Australia', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_E: Equipo[] = [
   { name: 'España', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Alemania', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
   { name: 'Japón', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
-  { name: 'Costa Rica o Nueva Zelanda', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
+  { name: 'Costa Rica', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 }
 ];
 
 var EQUIPOS_GRUPO_F: Equipo[] = [
