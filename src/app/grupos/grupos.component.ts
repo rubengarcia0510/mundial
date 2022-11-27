@@ -211,9 +211,6 @@ export class GruposComponent implements OnInit {
 
     GRUPOS[indexGrupos].equipos = aux
 
-    console.table(GRUPOS[indexGrupos].equipos)
-    alert(GRUPOS[indexGrupos].equipos[0].name)
-    console.table(this.partidosOctavos[0])
   }
 
   updatePartidos(grupo: string, equipo1: string, equipo2: string, fecha: string) {
@@ -407,7 +404,6 @@ export class GruposComponent implements OnInit {
       
       this.partidosFinal = this.final()
       if(this.partidosTercer[0].equipo1==''){
-        alert(this.partidosTercer[0].equipo1)
         this.partidosTercer[0].equipo1=perdedor
       }else{
         this.partidosTercer[0].equipo2=perdedor
