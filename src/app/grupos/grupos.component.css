@@ -6,3 +6,57 @@
   input[type="number"] {
     width:30px;
  }
+
+ .rd-tbl-1, .rd-tbl-2 {
+  width: 100%;
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  width: 100%;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+.t-enc-1, .t-enc-2, .t-enc-4, .t-enc-5, .t-enc-menu, .t-enc-sin-color {
+  text-align: center;
+  font-weight: bold;
+  padding: 0.3125rem 0.5rem;
+}
+
+.t-enc-2, .color-2, .linea-2 {
+  background-color: #3f51b5;
+  color:white;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.game {
+  background-image: url(../../assets/games.jpg);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+
+.gameresult {
+  background-color: #EFEFEF;
+}
+
+.a-center {
+  text-align: center !important;
+}
+
+.pad-0, tr.pad-0 td {
+  padding: 0 !important;
+}

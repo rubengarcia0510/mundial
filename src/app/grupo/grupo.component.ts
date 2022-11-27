@@ -7,7 +7,6 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class GrupoComponent implements OnInit {
   @Input() groupName: any;
-  displayedColumns: string[] = ['name'];
 
   constructor() {
    }
