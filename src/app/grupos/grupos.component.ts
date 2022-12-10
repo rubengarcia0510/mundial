@@ -142,7 +142,7 @@ export class GruposComponent implements OnInit {
               public snackBar: MatSnackBar,
               public dialog: MatDialog,
               private groupsService: GroupsService) {
-    this.grupos = []
+    this.grupos = GRUPOS
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
     this.partidosSemi = this.semiFinal()
@@ -199,10 +199,15 @@ export class GruposComponent implements OnInit {
     this.grupos = GRUPOS
     this.cargarFlags()
 
-    this.groupsService.getGroups().subscribe(data=>{
-      this.data=data
-      console.log("Salida groupService: "+this.data.name)
-    });
+    this.groups.forEach(valor=>{
+      console.log("Grupo :"+valor)
+      this.groupsService.getGroups(valor).subscribe(data=>{
+        
+        this.data=data
+        console.log("Salida groupService: "+this.data.name)
+      });
+    })
+    
 
     this.creatingObserversForFirstGroupData();
 
@@ -219,8 +224,8 @@ export class GruposComponent implements OnInit {
   }
 
   sortPuntos(grupo: string) {
-    let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
-    GRUPOS[indexGrupos].equipos.sort(function (x, y) {
+    let indexGrupos = this.grupos.findIndex((element: { name: string; }) => element.name == grupo)
+    this.grupos[indexGrupos].equipos.sort(function (x: { gf: number; gc: number; points: number; }, y: { gf: number; gc: number; points: number; }) {
       let diffX: number = x.gf - x.gc
       let diffY: number = y.gf - y.gc
       if (x.points == y.points && diffX == diffY) {
@@ -234,12 +239,12 @@ export class GruposComponent implements OnInit {
 
     let aux: Equipo[] = []
 
-    aux.push(GRUPOS[indexGrupos].equipos[3])
-    aux.push(GRUPOS[indexGrupos].equipos[2])
-    aux.push(GRUPOS[indexGrupos].equipos[1])
-    aux.push(GRUPOS[indexGrupos].equipos[0])
+    aux.push(this.grupos[indexGrupos].equipos[3])
+    aux.push(this.grupos[indexGrupos].equipos[2])
+    aux.push(this.grupos[indexGrupos].equipos[1])
+    aux.push(this.grupos[indexGrupos].equipos[0])
 
-    GRUPOS[indexGrupos].equipos = aux
+    this.grupos[indexGrupos].equipos = aux
 
   }
 
@@ -251,23 +256,23 @@ export class GruposComponent implements OnInit {
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-f" + fecha))
 
-    let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
-    let indexEquipo1 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo1)
-    let indexEquipo2 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo2)
+    let indexGrupos = this.grupos.findIndex((element: { name: string; }) => element.name == grupo)
+    let indexEquipo1 = this.grupos[indexGrupos].equipos.findIndex((element: { name: string; }) => element.name == equipo1)
+    let indexEquipo2 = this.grupos[indexGrupos].equipos.findIndex((element: { name: string; }) => element.name == equipo2)
 
-    GRUPOS[indexGrupos].equipos[indexEquipo1].pj = GRUPOS[indexGrupos].equipos[indexEquipo1].pj + 1
-    GRUPOS[indexGrupos].equipos[indexEquipo2].pj = GRUPOS[indexGrupos].equipos[indexEquipo2].pj + 1
+    this.grupos[indexGrupos].equipos[indexEquipo1].pj = this.grupos[indexGrupos].equipos[indexEquipo1].pj + 1
+    this.grupos[indexGrupos].equipos[indexEquipo2].pj = this.grupos[indexGrupos].equipos[indexEquipo2].pj + 1
 
     if (golesEquipo1Input.value == golesEquipo2Input.value) {
-      GRUPOS[indexGrupos].equipos[indexEquipo1].pe = GRUPOS[indexGrupos].equipos[indexEquipo1].pe + 1
-      GRUPOS[indexGrupos].equipos[indexEquipo2].pe = GRUPOS[indexGrupos].equipos[indexEquipo2].pe + 1
+      this.grupos[indexGrupos].equipos[indexEquipo1].pe = this.grupos[indexGrupos].equipos[indexEquipo1].pe + 1
+      this.grupos[indexGrupos].equipos[indexEquipo2].pe = this.grupos[indexGrupos].equipos[indexEquipo2].pe + 1
     } else {
       if (golesEquipo1Input.value > golesEquipo2Input.value) {
-        GRUPOS[indexGrupos].equipos[indexEquipo1].pg = GRUPOS[indexGrupos].equipos[indexEquipo1].pg + 1
-        GRUPOS[indexGrupos].equipos[indexEquipo2].pp = GRUPOS[indexGrupos].equipos[indexEquipo2].pp + 1
+        this.grupos[indexGrupos].equipos[indexEquipo1].pg = this.grupos[indexGrupos].equipos[indexEquipo1].pg + 1
+        this.grupos[indexGrupos].equipos[indexEquipo2].pp = this.grupos[indexGrupos].equipos[indexEquipo2].pp + 1
       } else {
-        GRUPOS[indexGrupos].equipos[indexEquipo1].pp = GRUPOS[indexGrupos].equipos[indexEquipo1].pp + 1
-        GRUPOS[indexGrupos].equipos[indexEquipo2].pg = GRUPOS[indexGrupos].equipos[indexEquipo2].pg + 1
+        this.grupos[indexGrupos].equipos[indexEquipo1].pp = this.grupos[indexGrupos].equipos[indexEquipo1].pp + 1
+        this.grupos[indexGrupos].equipos[indexEquipo2].pg = this.grupos[indexGrupos].equipos[indexEquipo2].pg + 1
       }
     }
 
@@ -285,19 +290,19 @@ export class GruposComponent implements OnInit {
     let golesEquipo2Input: HTMLInputElement | null
     golesEquipo2Input = (<HTMLInputElement>document.getElementById(equipo2 + "-f" + fecha))
 
-    let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
-    console.log(GRUPOS + '|' + indexGrupos + ': :' + grupo)
-    let indexEquipo1 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo1)
-    let indexEquipo2 = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == equipo2)
+    let indexGrupos = this.grupos.findIndex((element: { name: string; }) => element.name == grupo)
+    console.log(this.grupos + '|' + indexGrupos + ': :' + grupo)
+    let indexEquipo1 = this.grupos[indexGrupos].equipos.findIndex((element: { name: string; }) => element.name == equipo1)
+    let indexEquipo2 = this.grupos[indexGrupos].equipos.findIndex((element: { name: string; }) => element.name == equipo2)
 
     if (golesEquipo1Input.value == golesEquipo2Input.value) {
-      GRUPOS[indexGrupos].equipos[indexEquipo1].points = GRUPOS[indexGrupos].equipos[indexEquipo1].points + 1
-      GRUPOS[indexGrupos].equipos[indexEquipo2].points = GRUPOS[indexGrupos].equipos[indexEquipo2].points + 1
+      this.grupos[indexGrupos].equipos[indexEquipo1].points = this.grupos[indexGrupos].equipos[indexEquipo1].points + 1
+      this.grupos[indexGrupos].equipos[indexEquipo2].points = this.grupos[indexGrupos].equipos[indexEquipo2].points + 1
     } else {
       if (golesEquipo1Input.value > golesEquipo2Input.value) {
-        GRUPOS[indexGrupos].equipos[indexEquipo1].points = GRUPOS[indexGrupos].equipos[indexEquipo1].points + 3
+        this.grupos[indexGrupos].equipos[indexEquipo1].points = this.grupos[indexGrupos].equipos[indexEquipo1].points + 3
       } else {
-        GRUPOS[indexGrupos].equipos[indexEquipo2].points = GRUPOS[indexGrupos].equipos[indexEquipo2].points + 3
+        this.grupos[indexGrupos].equipos[indexEquipo2].points = this.grupos[indexGrupos].equipos[indexEquipo2].points + 3
       }
     }
 
@@ -316,16 +321,16 @@ export class GruposComponent implements OnInit {
     golesVisitanteInput = (<HTMLInputElement>document.getElementById(visitante + "-f" + fecha))
 
 
-    let indexGrupos = GRUPOS.findIndex(element => element.name == grupo)
-    let index = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == local)
+    let indexGrupos = this.grupos.findIndex((element: { name: string; }) => element.name == grupo)
+    let index = this.grupos[indexGrupos].equipos.findIndex((element: { name: string; }) => element.name == local)
 
-    GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesLocalInput.value)
-    GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesVisitanteInput.value)
+    this.grupos[indexGrupos].equipos[index].gf = this.grupos[indexGrupos].equipos[index].gf + parseInt(golesLocalInput.value)
+    this.grupos[indexGrupos].equipos[index].gc = this.grupos[indexGrupos].equipos[index].gc + parseInt(golesVisitanteInput.value)
 
-    index = GRUPOS[indexGrupos].equipos.findIndex(element => element.name == visitante)
+    index = this.grupos[indexGrupos].equipos.findIndex((element: { name: string; }) => element.name == visitante)
 
-    GRUPOS[indexGrupos].equipos[index].gf = GRUPOS[indexGrupos].equipos[index].gf + parseInt(golesVisitanteInput.value)
-    GRUPOS[indexGrupos].equipos[index].gc = GRUPOS[indexGrupos].equipos[index].gc + parseInt(golesLocalInput.value)
+    this.grupos[indexGrupos].equipos[index].gf = this.grupos[indexGrupos].equipos[index].gf + parseInt(golesVisitanteInput.value)
+    this.grupos[indexGrupos].equipos[index].gc = this.grupos[indexGrupos].equipos[index].gc + parseInt(golesLocalInput.value)
 
     event.target.disabled = true
     golesLocalInput.disabled = true
@@ -519,64 +524,64 @@ export class GruposComponent implements OnInit {
 
   octavosFinal() {
     let partido1: Partido = {
-      equipo1: GRUPOS[0].equipos[0].name,
-      equipo2: GRUPOS[1].equipos[1].name,
+      equipo1: this.grupos[0].equipos[0].name,
+      equipo2: this.grupos[1].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido2: Partido = {
-      equipo1: GRUPOS[2].equipos[0].name,
-      equipo2: GRUPOS[3].equipos[1].name,
+      equipo1: this.grupos[2].equipos[0].name,
+      equipo2: this.grupos[3].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido3: Partido = {
-      equipo1: GRUPOS[3].equipos[0].name,
-      equipo2: GRUPOS[2].equipos[1].name,
+      equipo1: this.grupos[3].equipos[0].name,
+      equipo2: this.grupos[2].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido4: Partido = {
-      equipo1: GRUPOS[1].equipos[0].name,
-      equipo2: GRUPOS[0].equipos[1].name,
+      equipo1: this.grupos[1].equipos[0].name,
+      equipo2: this.grupos[0].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido5: Partido = {
-      equipo1: GRUPOS[4].equipos[0].name,
-      equipo2: GRUPOS[5].equipos[1].name,
+      equipo1: this.grupos[4].equipos[0].name,
+      equipo2: this.grupos[5].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido6: Partido = {
-      equipo1: GRUPOS[6].equipos[0].name,
-      equipo2: GRUPOS[7].equipos[1].name,
+      equipo1: this.grupos[6].equipos[0].name,
+      equipo2: this.grupos[7].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido7: Partido = {
-      equipo1: GRUPOS[5].equipos[0].name,
-      equipo2: GRUPOS[4].equipos[1].name,
+      equipo1: this.grupos[5].equipos[0].name,
+      equipo2: this.grupos[4].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
     }
 
     let partido8: Partido = {
-      equipo1: GRUPOS[7].equipos[0].name,
-      equipo2: GRUPOS[6].equipos[1].name,
+      equipo1: this.grupos[7].equipos[0].name,
+      equipo2: this.grupos[6].equipos[1].name,
       golesEquipo1: 0,
       golesEquipo2: 0,
       ganador: ''
@@ -713,8 +718,8 @@ export class GruposComponent implements OnInit {
         partidos.push({
           grupo: elem,
           fecha: rec.fecha,
-          equipo1: GRUPOS[index].equipos[rec.equipo1].name,
-          equipo2: GRUPOS[index].equipos[rec.equipo2].name,
+          equipo1: this.grupos[index].equipos[rec.equipo1].name,
+          equipo2: this.grupos[index].equipos[rec.equipo2].name,
         })
       })
     })
