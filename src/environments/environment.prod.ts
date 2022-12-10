@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendHost:'http://localhost.prod:8081'
 };
