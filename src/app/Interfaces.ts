@@ -6,7 +6,7 @@ export interface Equipo {
     pe:number;
     gf:number;
     gc:number;
-    puntos:number;
+    points:number;
   }
   
   export interface Grupo{
