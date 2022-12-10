@@ -143,11 +143,13 @@ export class GruposComponent implements OnInit {
               public dialog: MatDialog,
               private groupsService: GroupsService) {
     this.grupos = GRUPOS
-    this.partidosOctavos = this.octavosFinal()
+    //this.partidosOctavos = this.octavosFinal()
+    /*
     this.partidosCuartos = this.cuartosFinal()
     this.partidosSemi = this.semiFinal()
     this.partidosFinal = this.final()
     this.partidosFaseGrupos = this.partidosGrupoA()
+    */
     this.ganador = ""
     this.ganadorTercerPuesto = ""
     this.flagEquipo = flagService.getFlags()
@@ -158,6 +160,7 @@ export class GruposComponent implements OnInit {
       golesEquipo2:0,
       ganador:''
     })
+
     this.team={
       "name":"String",
             "pj":0,
@@ -197,6 +200,12 @@ export class GruposComponent implements OnInit {
 
   ngOnInit(): void {
     this.grupos = GRUPOS
+    this.partidosOctavos = this.octavosFinal()
+    this.partidosCuartos = this.cuartosFinal()
+    this.partidosSemi = this.semiFinal()
+    this.partidosFinal = this.final()
+    this.partidosFaseGrupos = this.partidosGrupoA()
+
     this.cargarFlags()
 
     this.groups.forEach(valor=>{
