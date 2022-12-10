@@ -5,6 +5,9 @@ import { FlagsService } from '../flags.service';
 import { GanadorComponent } from '../ganador/ganador.component';
 import { Grupo, Equipo, Partido, Bandera } from '../Interfaces';
 import { ModalAlertComponent } from '../modal-alert/modal-alert.component';
+import { GroupsService } from '../service/groups.service';
+import { of } from 'rxjs';
+import { delay, tap } from 'rxjs/operators';
 
 var EQUIPOS_GRUPO_A: Equipo[] = [
   { name: 'Qatar', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
@@ -132,7 +135,8 @@ export class GruposComponent implements OnInit {
   banderas: any = []
   constructor(public flagService: FlagsService, 
               public snackBar: MatSnackBar,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private groupsService: GroupsService) {
     this.grupos = []
     this.partidosOctavos = this.octavosFinal()
     this.partidosCuartos = this.cuartosFinal()
@@ -175,6 +179,9 @@ export class GruposComponent implements OnInit {
   ngOnInit(): void {
     this.grupos = GRUPOS
     this.cargarFlags()
+
+    this.groupsService.getGroups();
+    this.creatingObserversForFirstGroupData();
 
   }
 
@@ -692,6 +699,34 @@ export class GruposComponent implements OnInit {
 
     return partidos;
 
+  }
+
+  creatingObserversForFirstGroupData() {
+    of(true)
+      .pipe(
+        tap(() => {
+          console.log(
+            `Observer 1 is going to subscribe at ${new Date().toUTCString()}`
+          );
+          this.groupsService.groupData$.subscribe(
+            (value) => console.log(`Observer 1 has received`, value),
+            (err) => console.log(err),
+            () => console.log('Observer1 has completed')
+          );
+        }),
+        delay(1000),
+        tap(() => {
+          console.log(
+            `Observer 2 is going to subscribe at ${new Date().toUTCString()}`
+          );
+          this.groupsService.groupData$.subscribe(
+            (value) => console.log(`Observer 2 has received`, value),
+            (err) => console.log(err),
+            () => console.log('Observer2 has completed')
+          );
+        })
+      )
+      .subscribe();
   }
 
 
