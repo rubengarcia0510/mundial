@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Directive, ElementRef, Input, OnInit, ViewChild, ɵisObservable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FlagsService } from '../flags.service';
@@ -6,8 +6,10 @@ import { GanadorComponent } from '../ganador/ganador.component';
 import { Grupo, Equipo, Partido, Bandera } from '../Interfaces';
 import { ModalAlertComponent } from '../modal-alert/modal-alert.component';
 import { GroupsService } from '../service/groups.service';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
+import { Group } from '../model/group';
+import { Team } from '../model/team';
 
 var EQUIPOS_GRUPO_A: Equipo[] = [
   { name: 'Qatar', pj: 0, pg: 0, pp: 0, pe: 0, gf: 0, gc: 0, puntos: 0 },
@@ -133,6 +135,9 @@ export class GruposComponent implements OnInit {
   ]
 
   banderas: any = []
+  group:Group
+  team:Team
+  data:any
   constructor(public flagService: FlagsService, 
               public snackBar: MatSnackBar,
               public dialog: MatDialog,
@@ -153,9 +158,23 @@ export class GruposComponent implements OnInit {
       golesEquipo2:0,
       ganador:''
     })
+    this.team={
+      "name":"String",
+            "pj":0,
+      "pg":0,
+      "pe":0,
+      "pp":0,
+      "gf":0,
+      "gc":0,
+      "dg":0,
+      "points":0
+    }
+    this.group={
+      "name":"",
+       "teams":[this.team]
+    }
+    this.data=new Observable<any>();
 
-
-    console.log(flagService.getFlag("Argentina"))
   }
 
   openDialog(): void {
@@ -180,7 +199,11 @@ export class GruposComponent implements OnInit {
     this.grupos = GRUPOS
     this.cargarFlags()
 
-    this.groupsService.getGroups();
+    this.groupsService.getGroups().subscribe(data=>{
+      this.data=data
+      console.log("Salida groupService: "+this.data.name)
+    });
+
     this.creatingObserversForFirstGroupData();
 
   }
@@ -709,13 +732,16 @@ export class GruposComponent implements OnInit {
             `Observer 1 is going to subscribe at ${new Date().toUTCString()}`
           );
           this.groupsService.groupData$.subscribe(
-            (value) => console.log(`Observer 1 has received`, value),
+            (value) => {
+              value
+              //console.log(`Observer 1 has received`, value)
+            },
             (err) => console.log(err),
             () => console.log('Observer1 has completed')
           );
         }),
         delay(1000),
-        tap(() => {
+        /*tap(() => {
           console.log(
             `Observer 2 is going to subscribe at ${new Date().toUTCString()}`
           );
@@ -724,7 +750,7 @@ export class GruposComponent implements OnInit {
             (err) => console.log(err),
             () => console.log('Observer2 has completed')
           );
-        })
+        })*/
       )
       .subscribe();
   }
