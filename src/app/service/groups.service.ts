@@ -13,10 +13,18 @@ export class GroupsService {
   constructor(private http: HttpClient) { }
 
   public groupData$ = new Observable();
+  public grupoA = new Observable();
+  public grupoB = new Observable();
+  public grupoC = new Observable();
+  public grupoD = new Observable();
+  public grupoE = new Observable();
+  public grupoF = new Observable();
+  public grupoG = new Observable();
+  public grupoH = new Observable();
 
-  getGroups() {
+  getGroups(grupo:string) {
     this.groupData$ = this.http
-      .get<Group>(environment.backendHost+'/groups/A')
+      .get<Group>(environment.backendHost+'/groups/'+grupo)
       .pipe(
         map(response => new Group(response.name,response.teams)),
         publishLast(),
