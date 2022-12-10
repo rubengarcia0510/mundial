@@ -61,7 +61,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -70,8 +76,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "port": 8080,
-            "host": "0.0.0.0",
-            "publicHost": "web-rubengarcia0510.cloud.okteto.net"
+            "host": "0.0.0.0"
+            //"publicHost": "web-rubengarcia0510.cloud.okteto.net"
           },
           "configurations": {
             "production": {
