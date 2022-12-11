@@ -22,7 +22,7 @@ export class GroupsService {
   public grupoG = new Observable();
   public grupoH = new Observable();
 
-  getGroups(grupo:string) {
+  getGroup(grupo:string) {
     this.groupData$ = this.http
       .get<Group>(environment.backendHost+'/groups/'+grupo)
       .pipe(

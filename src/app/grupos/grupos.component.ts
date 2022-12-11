@@ -210,7 +210,7 @@ export class GruposComponent implements OnInit {
 
     this.groups.forEach(valor=>{
       console.log("Grupo :"+valor)
-      this.groupsService.getGroups(valor).subscribe(data=>{
+      this.groupsService.getGroup(valor).subscribe(data=>{
         
         this.data=data
         console.log("Salida groupService: "+this.data.name)
