@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { MatCardModule } from '@angular/material/card';
@@ -36,7 +36,8 @@ import { GanadorComponent } from './ganador/ganador.component';
     MatTabsModule,
     MatSnackBarModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
    
   ],
   providers: [],

@@ -6,12 +6,12 @@ export interface Equipo {
     pe:number;
     gf:number;
     gc:number;
-    puntos:number;
+    points:number;
   }
   
   export interface Grupo{
     name:string;
-    equipos: Equipo[];
+    teams: Equipo[];
   }
 
   export interface Partido{
