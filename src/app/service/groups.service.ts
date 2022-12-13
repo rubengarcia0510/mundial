@@ -4,6 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map, publishLast, refCount, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.development';
 import { Group } from '../model/group';
+import { Groups } from '../model/groups';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,21 @@ export class GroupsService {
       .get<Group>(environment.backendHost+'/groups/'+grupo)
       .pipe(
         map(response => new Group(response.name,response.teams)),
+        publishLast(),
+        refCount(),
+        catchError((err) => throwError(err))
+      );
+
+      return this.groupData$
+  }
+
+  getGroups() {
+    this.groupData$ = this.http
+      .get(environment.backendHost+'/groups/all')
+      .pipe(
+        //map(response => new Group(response.name,response.teams)),
+        //map(response => new Groups(response.grupos)),
+        map(response => response),
         publishLast(),
         refCount(),
         catchError((err) => throwError(err))

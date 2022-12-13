@@ -11,7 +11,7 @@ export interface Equipo {
   
   export interface Grupo{
     name:string;
-    equipos: Equipo[];
+    teams: Equipo[];
   }
 
   export interface Partido{

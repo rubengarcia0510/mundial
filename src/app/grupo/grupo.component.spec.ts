@@ -17,7 +17,7 @@ describe('GrupoComponent', () => {
   beforeEach(() => {
     groupName={
       name:"ruben",
-      equipos:[
+      teams:[
         {
           name:"boca",
           pj:0,
