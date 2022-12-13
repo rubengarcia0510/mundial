@@ -34,7 +34,7 @@
                 border-radius: 0.5em;
                 color: white;
                 margin: 5px;">
-                  <h3>Grupo {{row.grupo}}</h3>
+                  <h3>Grupo {{row.grupo.name}}</h3>
                 </td>
                 <td></td>
                 <td></td>
@@ -54,7 +54,7 @@
               <td><input id={{row.equipo1}}-f{{row.fecha}} type="number" value="0"></td>
               <td>{{row.equipo2}}</td>
               <td><input id={{row.equipo2}}-f{{row.fecha}} type="number" value="0"></td>
-              <td><input type="checkbox" (click)="updateGrupo($event,row.grupo,row.equipo1,row.equipo2,row.fecha)"></td>
+              <td><input type="checkbox" (click)="updateGrupo($event,row.grupo.name,row.equipo1,row.equipo2,row.fecha)"></td>
             </tr>
           </ng-container>
 

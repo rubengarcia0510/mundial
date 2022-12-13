@@ -17,7 +17,7 @@ describe('GrupoComponent', () => {
   beforeEach(() => {
     groupName={
       name:"ruben",
-      equipos:[
+      teams:[
         {
           name:"boca",
           pj:0,
@@ -26,7 +26,7 @@ describe('GrupoComponent', () => {
           pp:0,
           gf:0,
           gc:0,
-          puntos:0
+          points:0
         }
       ]
     }

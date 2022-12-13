@@ -17,7 +17,7 @@
         <td>DG</td>
         <td>PUNTOS</td>
         </tr>
-      <tr *ngFor="let equipo of groupName.equipos">
+      <tr *ngFor="let equipo of groupName.teams">
           <td style="width: 100px;">{{equipo.name}}</td>
           <td id="{{equipo.name}}-pj">{{equipo.pj}}</td>
           <td id="{{equipo.name}}-pg">{{equipo.pg}}</td>
@@ -26,7 +26,7 @@
           <td id="{{equipo.name}}-gf">{{equipo.gf}}</td>
           <td id="{{equipo.name}}-gc">{{equipo.gc}}</td>
           <td id="{{equipo.name}}-dg">{{equipo.gf - equipo.gc}}</td>
-          <td style="text-align: center;" id="{{equipo.name}}-puntos">{{equipo.puntos}}</td>
+          <td style="text-align: center;" id="{{equipo.name}}-points">{{equipo.points}}</td>
       </tr>
       
       
