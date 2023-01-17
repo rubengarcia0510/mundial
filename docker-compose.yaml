@@ -12,10 +12,7 @@ services:
     container_name: nginx-local-dev-proxy
     image: nginx:1.21.3
     ports:
-      - target: 80
-        published: 80
-        protocol: tcp
-        mode: host
+      - 80:80
     volumes:
       # Here we mount the local configuration for the Nginx instance
       - "./nginx-local-dev-proxy-container.conf:/etc/nginx/nginx.conf"
