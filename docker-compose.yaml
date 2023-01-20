@@ -15,8 +15,8 @@ services:
       - 80:80
     volumes:
       # Here we mount the local configuration for the Nginx instance
-      - "./nginx-local-dev-proxy-container.conf:/etc/nginx/nginx.conf"
+      - "./nginx.conf:/etc/nginx/nginx.conf"
       # Here we mount the actual source code (or you can mount the build output)
-      - "./src:/usr/share/nginx/html"
+      - "./dist/mundial:/usr/share/nginx/html"
     # Enable this for detailed routing debug info
     command: [nginx-debug, '-g', 'daemon off;']
