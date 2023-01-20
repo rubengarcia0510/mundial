@@ -7,7 +7,7 @@ LABEL stage=builder
 # Copy the files for dependencies, so we can install those first and use Docker caching to speed up builds
 WORKDIR /workspace
 COPY package.json /workspace/package.json
-COPY package-lock.json /workspace/package-lock.json
+#COPY package-lock.json /workspace/package-lock.json
 RUN npm install
 
 # Copy the source
