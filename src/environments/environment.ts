@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendHost:'http://localhost.prod:8081',
+  backendHost:'http://10.155.217.40:8080',
   "publicHost": "web-rubengarcia0510.cloud.okteto.net"
 };
 
