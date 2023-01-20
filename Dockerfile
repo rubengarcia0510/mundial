@@ -29,6 +29,7 @@ FROM nginx
 # Copy files from builder
 WORKDIR /usr/share/nginx/html
 #COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /workspace/nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /workspace/dist/mundial /usr/share/nginx/html
 COPY --from=builder /workspace/dist/mundial /var/www/html
 
