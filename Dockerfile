@@ -32,6 +32,6 @@ WORKDIR /usr/share/nginx/html
 COPY --from=builder /workspace/dist/mundial /usr/share/nginx/html
 COPY --from=builder /workspace/dist/mundial /var/www/html
 
-CMD [nginx-debug, '-g', 'daemon off;']
+CMD ["nginx", "-g", "daemon off;"]
 # Health check example, different values can be specified when running
 HEALTHCHECK --interval=20s --timeout=20s --retries=3 --start-period=120s CMD curl --fail http://127.0.0.1:80 | grep "Welcome to my app!" || exit 1"
