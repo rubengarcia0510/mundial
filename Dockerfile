@@ -12,6 +12,7 @@ RUN npm install
 
 # Copy the source
 COPY . /workspace
+COPY ./nginx.conf /etc/nginx/nginx.conf
 # Make sure target directory for compiled files is empty
 RUN rm -rf /workspace/target && mkdir /workspace/target
 # Build app
@@ -27,8 +28,9 @@ FROM nginx
 
 # Copy files from builder
 WORKDIR /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/nginx.conf
+#COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /workspace/dist/mundial /usr/share/nginx/html
+COPY --from=builder /workspace/dist/mundial /var/www/html
 
 # Health check example, different values can be specified when running
 HEALTHCHECK --interval=20s --timeout=20s --retries=3 --start-period=120s CMD curl --fail http://127.0.0.1:80 | grep "Welcome to my app!" || exit 1"
