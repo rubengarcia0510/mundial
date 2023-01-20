@@ -1,14 +1,15 @@
-version: '3.8'
+# Docker Compose file for Nginx, that lets you proxy front end API requests in a transparent manner.
+
+# Run with:
+#   docker-compose -f docker-compose-nginx-local-dev-proxy.yaml up
+# Clean up afterwards with:
+#   docker-compose -f docker-compose-nginx-local-dev-proxy.yaml down
+#   docker rm nginx-local-dev-proxy
+
+version: "3.7"
 services:
   web:
-    build:
-      context: ./
-      target: dev
-    volumes:
-      - .:/src
-    command: npm run start
+    container_name: web
+    build: .
     ports:
-      - "8080:8080"
-    environment:
-      NODE_ENV: development
-      DEBUG: nodejs-docker-express:*
+      - 80:80
