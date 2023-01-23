@@ -116,5 +116,7 @@
       }
     }
   },
-  "defaultProject": "mundial"
+  "cli": {
+    "analytics": false
+  }
 }
