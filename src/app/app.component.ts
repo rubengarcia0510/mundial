@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'mundial';
   isLogued:boolean = false;
+
+  procesaPropagar(mensaje:boolean) {
+    this.isLogued=mensaje;
+    console.log(mensaje);
+  }
 }

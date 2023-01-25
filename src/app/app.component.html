@@ -8,5 +8,11 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div *ngIf="isLogued; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock><app-grupos></app-grupos></ng-template>
-<ng-template #elseBlock><app-login></app-login></ng-template>
+<ng-template #elseBlock>
+    <app-login 
+        [logued]="isLogued"
+        (propagar)="procesaPropagar($event)"
+        ></app-login>
+</ng-template>
+
 
