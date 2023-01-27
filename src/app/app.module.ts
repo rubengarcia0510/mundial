@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GrupoComponent } from './grupo/grupo.component';
 import { ModalAlertComponent } from './modal-alert/modal-alert.component';
 import { GanadorComponent } from './ganador/ganador.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GanadorComponent } from './ganador/ganador.component';
     GruposComponent,
     GrupoComponent,
     ModalAlertComponent,
-    GanadorComponent
+    GanadorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

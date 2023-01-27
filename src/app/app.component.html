@@ -6,4 +6,13 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-grupos></app-grupos>
+<div *ngIf="isLogued; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><app-grupos></app-grupos></ng-template>
+<ng-template #elseBlock>
+    <app-login 
+        [logued]="isLogued"
+        (propagar)="procesaPropagar($event)"
+        ></app-login>
+</ng-template>
+
+
