@@ -17,7 +17,7 @@ export class LoginComponent {
   ngOnInit() {
   }
 
-  onPropagar(event:any) {
+  onPropagar() {
     let usuario: HTMLInputElement | null
     usuario = (<HTMLInputElement>document.getElementById('user'))
     let clave: HTMLInputElement | null
