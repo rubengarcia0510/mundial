@@ -17,10 +17,25 @@ export class LoginComponent {
   ngOnInit() {
   }
 
-  onPropagar() {
-    console.log(this.logued)
+  onPropagar(event:any) {
+    let usuario: HTMLInputElement | null
+    usuario = (<HTMLInputElement>document.getElementById('user'))
+    let clave: HTMLInputElement | null
+    clave = (<HTMLInputElement>document.getElementById('password'))
+    if(usuario.value==""){
+      alert("No ingresaste el usuario")
+      return 1
+    }
+    if(clave.value==""){
+      alert("No ingresaste la password")
+      return 1
+    }
+
+    console.log(usuario.value)
     this.logued=true;
     this.propagar.emit(this.logued);
+    return 0
+    
   }
 
 }
